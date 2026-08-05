@@ -5,9 +5,9 @@ export interface Task {
   description: string
   priority: string
   completed: boolean
-  // category?: string
-  // tags?: string[]
-  // dueDate?: string | number
+  category?: string
+  tags?: string[]
+  dueDate?: string | number
 }
 
 interface TaskListProps {
@@ -46,18 +46,29 @@ const tasks: Task[] = [
  */
 
 export default function TaskList(_props: TaskListProps) {
+  const tasklist = Array.isArray(_props.tasks)
+    ? _props.tasks
+    : tasks;
+
   return (
-    <section id="task-list" >
-      {tasks.map((task) => (
-        <TaskCard
-          key={task.id}
-          title={task.title}
-          description={task.description}
-          priority={task.priority}
-          completed={task.completed}
-          onToggle={_props.onToggle}
-        />
-      ))}
-    </section>
+    <div>
+      {typeof _props.countText === "string" && (
+        <p id="task-count">
+          {_props.countText}
+        </p>
+      )}
+      <section id="task-list" >
+        {tasklist.map((task) => (
+          <TaskCard
+            key={task.id}
+            title={task.title}
+            description={task.description}
+            priority={task.priority}
+            completed={task.completed}
+            onToggle={_props.onToggle}
+          />
+        ))}
+      </section>
+    </div>
   );
 }
