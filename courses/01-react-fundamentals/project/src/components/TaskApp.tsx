@@ -43,6 +43,7 @@ export default function TaskApp(_props: TaskAppProps) {
         tasks={_props.tasks}
         countText={`${completedCount} of ${totalCount} completed`}
         onToggle={handleToggle}
+        onDelete={_props.onDelete}
       />
     </div>
   );

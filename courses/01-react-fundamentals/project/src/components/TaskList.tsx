@@ -61,12 +61,13 @@ export default function TaskList(_props: TaskListProps) {
         {tasklist.map((task) => (
           <TaskCard
             key={task.id}
-            taskId={task.id}
+            id={task.id}
             title={task.title}
             description={task.description}
             priority={task.priority}
             completed={task.completed}
             onToggle={_props.onToggle}
+            onDelete={_props.onDelete}
           />
         ))}
       </section>
