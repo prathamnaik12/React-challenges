@@ -2,7 +2,7 @@
   {
     "challengeId": "01-static-task-display",
     "challengeName": "Static Task Display",
-    "timestamp": "2026-08-04T15:35:53.669Z",
+    "timestamp": "2026-08-06T17:13:18.787Z",
     "scores": {
       "functionalTests": 100,
       "codeQuality": 100,
@@ -33,7 +33,7 @@
               "fullName": " Challenge 01: Static Task Display TaskCard should render title, description, and priority",
               "status": "passed",
               "title": "should render title, description, and priority",
-              "duration": 76,
+              "duration": 37,
               "failureMessages": []
             },
             {
@@ -45,7 +45,7 @@
               "fullName": " Challenge 01: Static Task Display TaskCard should use article with id task-card",
               "status": "passed",
               "title": "should use article with id task-card",
-              "duration": 10,
+              "duration": 3,
               "failureMessages": []
             },
             {
@@ -57,7 +57,7 @@
               "fullName": " Challenge 01: Static Task Display TaskCard should use semantic HTML (h2 for title)",
               "status": "passed",
               "title": "should use semantic HTML (h2 for title)",
-              "duration": 7,
+              "duration": 3,
               "failureMessages": []
             },
             {
@@ -69,7 +69,7 @@
               "fullName": " Challenge 01: Static Task Display TaskList should render 3 TaskCards when no tasks prop",
               "status": "passed",
               "title": "should render 3 TaskCards when no tasks prop",
-              "duration": 10,
+              "duration": 5,
               "failureMessages": []
             },
             {
@@ -81,7 +81,7 @@
               "fullName": " Challenge 01: Static Task Display TaskList should have section with id task-list",
               "status": "passed",
               "title": "should have section with id task-list",
-              "duration": 10,
+              "duration": 6,
               "failureMessages": []
             },
             {
@@ -93,12 +93,12 @@
               "fullName": " Challenge 01: Static Task Display TaskList should display three different tasks",
               "status": "passed",
               "title": "should display three different tasks",
-              "duration": 31,
+              "duration": 13,
               "failureMessages": []
             }
           ],
-          "startTime": 1785857762457,
-          "endTime": 1785857762602,
+          "startTime": 1786036407451,
+          "endTime": 1786036407518,
           "status": "passed",
           "message": "",
           "name": "C:/Users/user/OneDrive/Apps/react-/challenge-engine-react/courses/01-react-fundamentals/project/tests/challenge-01.test.tsx"
@@ -252,12 +252,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 446,
+                          "duration": 1181,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-08-04T15:36:21.138Z",
+                          "startTime": "2026-08-06T17:13:43.329Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -286,12 +286,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 336,
+                          "duration": 953,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-08-04T15:36:21.804Z",
+                          "startTime": "2026-08-06T17:13:45.320Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -320,12 +320,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 741,
+                          "duration": 609,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-08-04T15:36:22.173Z",
+                          "startTime": "2026-08-06T17:13:46.287Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -354,7 +354,7 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "failed",
-                          "duration": 5406,
+                          "duration": 7416,
                           "error": {
                             "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/First hardcoded task/)\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/First hardcoded task/)\u001b[22m\n",
                             "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/First hardcoded task/)\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/First hardcoded task/)\u001b[22m\n\n    at C:\\Users\\user\\OneDrive\\Apps\\react-\\challenge-engine-react\\courses\\01-react-fundamentals\\project\\tests\\e2e\\challenge-01.spec.ts:25:58",
@@ -378,7 +378,7 @@
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-08-04T15:36:22.950Z",
+                          "startTime": "2026-08-06T17:13:46.907Z",
                           "annotations": [],
                           "attachments": [
                             {
@@ -402,7 +402,7 @@
                           "workerIndex": 1,
                           "parallelIndex": 0,
                           "status": "failed",
-                          "duration": 5549,
+                          "duration": 5595,
                           "error": {
                             "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/First hardcoded task/)\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/First hardcoded task/)\u001b[22m\n",
                             "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/First hardcoded task/)\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/First hardcoded task/)\u001b[22m\n\n    at C:\\Users\\user\\OneDrive\\Apps\\react-\\challenge-engine-react\\courses\\01-react-fundamentals\\project\\tests\\e2e\\challenge-01.spec.ts:25:58",
@@ -426,7 +426,7 @@
                           "stdout": [],
                           "stderr": [],
                           "retry": 1,
-                          "startTime": "2026-08-04T15:36:31.780Z",
+                          "startTime": "2026-08-06T17:14:01.908Z",
                           "annotations": [],
                           "attachments": [
                             {
@@ -455,7 +455,7 @@
                           "workerIndex": 2,
                           "parallelIndex": 0,
                           "status": "failed",
-                          "duration": 5402,
+                          "duration": 5410,
                           "error": {
                             "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/First hardcoded task/)\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/First hardcoded task/)\u001b[22m\n",
                             "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/First hardcoded task/)\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/First hardcoded task/)\u001b[22m\n\n    at C:\\Users\\user\\OneDrive\\Apps\\react-\\challenge-engine-react\\courses\\01-react-fundamentals\\project\\tests\\e2e\\challenge-01.spec.ts:25:58",
@@ -479,7 +479,7 @@
                           "stdout": [],
                           "stderr": [],
                           "retry": 2,
-                          "startTime": "2026-08-04T15:36:40.967Z",
+                          "startTime": "2026-08-06T17:14:10.780Z",
                           "annotations": [],
                           "attachments": [
                             {
@@ -524,12 +524,12 @@
                           "workerIndex": 3,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 301,
+                          "duration": 536,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-08-04T15:36:49.726Z",
+                          "startTime": "2026-08-06T17:14:18.928Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -552,41 +552,41 @@
     },
     "aiReviewResults": {
       "challengeId": "01-static-task-display",
-      "timestamp": "2026-08-04T15:36:51.019Z",
+      "timestamp": "2026-08-06T17:14:20.524Z",
       "score": 88,
       "feedback": [],
       "strengths": [
         "The code is well-structured and follows a consistent naming convention.",
-        "The use of TypeScript interfaces and props typing is excellent.",
-        "The code is relatively free of errors and warnings."
+        "The use of TypeScript interfaces and props validation is excellent for ensuring type safety and preventing errors.",
+        "The code is relatively free of unnecessary complexity and is easy to follow."
       ],
       "improvements": [
-        "In the `TaskCard` component, consider using a more robust way to display the priority, such as using an enum or a lookup table, instead of hardcoding the string values.",
-        "In the `TaskList` component, consider adding a `key` prop to the `section` element to improve performance when rendering a large number of tasks.",
-        "Consider adding more comments or documentation to explain the purpose and behavior of each component and function."
+        "Some of the CSS styles are hardcoded directly in the components. Consider moving them to a separate CSS file or using a CSS-in-JS solution like styled-components.",
+        "The TaskList component has a hardcoded array of tasks. Consider fetching tasks from an API or a data store to make the component more dynamic.",
+        "The TaskCard component has a lot of conditional rendering based on the props. Consider simplifying the logic using a more functional approach."
       ],
       "readability": 85,
       "maintainability": 90,
-      "overall": "The code is well-organized and follows best practices. However, there are a few areas where improvements can be made to enhance readability, maintainability, and performance. With some additional comments and documentation, the code will be even more maintainable and easier to understand."
+      "overall": "The code is well-structured and follows best practices for React and TypeScript development. However, there are some areas for improvement, such as moving CSS styles to a separate file and simplifying the logic in the TaskCard component. With some minor adjustments, this code can be even more maintainable and efficient."
     },
     "aiResults": {
       "challengeId": "01-static-task-display",
-      "timestamp": "2026-08-04T15:36:51.019Z",
+      "timestamp": "2026-08-06T17:14:20.524Z",
       "score": 88,
       "feedback": [],
       "strengths": [
         "The code is well-structured and follows a consistent naming convention.",
-        "The use of TypeScript interfaces and props typing is excellent.",
-        "The code is relatively free of errors and warnings."
+        "The use of TypeScript interfaces and props validation is excellent for ensuring type safety and preventing errors.",
+        "The code is relatively free of unnecessary complexity and is easy to follow."
       ],
       "improvements": [
-        "In the `TaskCard` component, consider using a more robust way to display the priority, such as using an enum or a lookup table, instead of hardcoding the string values.",
-        "In the `TaskList` component, consider adding a `key` prop to the `section` element to improve performance when rendering a large number of tasks.",
-        "Consider adding more comments or documentation to explain the purpose and behavior of each component and function."
+        "Some of the CSS styles are hardcoded directly in the components. Consider moving them to a separate CSS file or using a CSS-in-JS solution like styled-components.",
+        "The TaskList component has a hardcoded array of tasks. Consider fetching tasks from an API or a data store to make the component more dynamic.",
+        "The TaskCard component has a lot of conditional rendering based on the props. Consider simplifying the logic using a more functional approach."
       ],
       "readability": 85,
       "maintainability": 90,
-      "overall": "The code is well-organized and follows best practices. However, there are a few areas where improvements can be made to enhance readability, maintainability, and performance. With some additional comments and documentation, the code will be even more maintainable and easier to understand."
+      "overall": "The code is well-structured and follows best practices for React and TypeScript development. However, there are some areas for improvement, such as moving CSS styles to a separate file and simplifying the logic in the TaskCard component. With some minor adjustments, this code can be even more maintainable and efficient."
     }
   },
   {
@@ -2681,6 +2681,319 @@
       "readability": 85,
       "maintainability": 90,
       "overall": "The code is well-written and follows good practices. However, there are some minor improvements that can be made to enhance readability, maintainability, and organization."
+    }
+  },
+  {
+    "challengeId": "07-priority-based-sorting",
+    "challengeName": "Priority-Based Sorting",
+    "timestamp": "2026-08-06T17:43:43.291Z",
+    "scores": {
+      "functionalTests": 100,
+      "codeQuality": 100,
+      "architecture": 100,
+      "bestPractices": 100,
+      "e2eTests": 100,
+      "aiReview": 88
+    },
+    "totalScore": 98.2,
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "testResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 3,
+      "passedTests": 3,
+      "failedTests": 0,
+      "details": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 07: Priority-Based Sorting"
+              ],
+              "fullName": " Challenge 07: Priority-Based Sorting FilterBar or sort control should exist",
+              "status": "passed",
+              "title": "FilterBar or sort control should exist",
+              "duration": 54,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 07: Priority-Based Sorting"
+              ],
+              "fullName": " Challenge 07: Priority-Based Sorting TaskList should render tasks in order provided",
+              "status": "passed",
+              "title": "TaskList should render tasks in order provided",
+              "duration": 312,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 07: Priority-Based Sorting"
+              ],
+              "fullName": " Challenge 07: Priority-Based Sorting When tasks sorted High to Low, High appears first",
+              "status": "passed",
+              "title": "When tasks sorted High to Low, High appears first",
+              "duration": 147,
+              "failureMessages": []
+            }
+          ],
+          "startTime": 1786038230690,
+          "endTime": 1786038231204,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/user/OneDrive/Apps/react-/challenge-engine-react/courses/01-react-fundamentals/project/tests/challenge-07.test.tsx"
+        }
+      ]
+    },
+    "lintResults": {
+      "score": 100,
+      "passed": true,
+      "totalIssues": 0,
+      "errors": 0,
+      "warnings": 0,
+      "details": [
+        {
+          "filePath": "C:\\Users\\user\\OneDrive\\Apps\\react-\\challenge-engine-react\\courses\\01-react-fundamentals\\project\\src\\App.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": [
+            {
+              "ruleId": "no-extra-semi",
+              "replacedBy": []
+            },
+            {
+              "ruleId": "no-mixed-spaces-and-tabs",
+              "replacedBy": []
+            }
+          ]
+        },
+        {
+          "filePath": "C:\\Users\\user\\OneDrive\\Apps\\react-\\challenge-engine-react\\courses\\01-react-fundamentals\\project\\src\\components\\FilterBar.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": [
+            {
+              "ruleId": "no-extra-semi",
+              "replacedBy": []
+            },
+            {
+              "ruleId": "no-mixed-spaces-and-tabs",
+              "replacedBy": []
+            }
+          ]
+        },
+        {
+          "filePath": "C:\\Users\\user\\OneDrive\\Apps\\react-\\challenge-engine-react\\courses\\01-react-fundamentals\\project\\src\\components\\TaskApp.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": [
+            {
+              "ruleId": "no-extra-semi",
+              "replacedBy": []
+            },
+            {
+              "ruleId": "no-mixed-spaces-and-tabs",
+              "replacedBy": []
+            }
+          ]
+        }
+      ]
+    },
+    "architectureResults": {
+      "score": 100,
+      "passed": true,
+      "patternsFound": [
+        "functionalComponent",
+        "props"
+      ],
+      "patternsMissing": [],
+      "details": [
+        {
+          "file": "src/components/FilterBar.tsx",
+          "patternsFound": [
+            "functionalComponent",
+            "props"
+          ],
+          "patternsMissing": []
+        },
+        {
+          "file": "src/components/TaskApp.tsx",
+          "patternsFound": [
+            "functionalComponent",
+            "props"
+          ],
+          "patternsMissing": []
+        },
+        {
+          "file": "src/App.tsx",
+          "patternsFound": [
+            "functionalComponent"
+          ],
+          "patternsMissing": [
+            "props"
+          ]
+        }
+      ]
+    },
+    "bestPracticesResults": {
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "details": [],
+      "note": "No best practices requirements specified in challenge"
+    },
+    "e2eResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 2,
+      "passedTests": 2,
+      "failedTests": 0,
+      "details": [
+        {
+          "title": "challenge-07.spec.ts",
+          "file": "challenge-07.spec.ts",
+          "column": 0,
+          "line": 0,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Challenge 07: Priority-Based Sorting - E2E",
+              "file": "challenge-07.spec.ts",
+              "line": 3,
+              "column": 6,
+              "specs": [
+                {
+                  "title": "should display task list",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 392,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-06T17:44:07.483Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "7e3ab03348c1d17f8ec0-ffedea28fb870c94d6b8",
+                  "file": "challenge-07.spec.ts",
+                  "line": 8,
+                  "column": 3
+                },
+                {
+                  "title": "should display tasks",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 732,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-06T17:44:08.457Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "7e3ab03348c1d17f8ec0-7057cd7f4822bf925c3c",
+                  "file": "challenge-07.spec.ts",
+                  "line": 12,
+                  "column": 3
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "screenshots": []
+    },
+    "aiReviewResults": {
+      "challengeId": "07-priority-based-sorting",
+      "timestamp": "2026-08-06T17:44:10.382Z",
+      "score": 88,
+      "feedback": [],
+      "strengths": [
+        "The code is well-structured and easy to follow, with clear separation of concerns between components.",
+        "The use of TypeScript and functional components promotes maintainability and scalability.",
+        "The implementation of sorting and filtering logic is well-organized and easy to understand."
+      ],
+      "improvements": [
+        "Some of the variable names could be more descriptive, especially in the TaskApp component.",
+        "The use of magic strings (e.g., 'High', 'Medium', 'Low') could be replaced with enum values for better maintainability.",
+        "The sorting logic could be extracted into a separate function for better reusability and testability."
+      ],
+      "readability": 85,
+      "maintainability": 90,
+      "overall": "The code is well-structured and maintainable, with a clear separation of concerns between components. However, there are some areas for improvement, such as variable naming and code organization. Overall, the code is a good example of how to implement sorting and filtering logic in a React application."
+    },
+    "aiResults": {
+      "challengeId": "07-priority-based-sorting",
+      "timestamp": "2026-08-06T17:44:10.382Z",
+      "score": 88,
+      "feedback": [],
+      "strengths": [
+        "The code is well-structured and easy to follow, with clear separation of concerns between components.",
+        "The use of TypeScript and functional components promotes maintainability and scalability.",
+        "The implementation of sorting and filtering logic is well-organized and easy to understand."
+      ],
+      "improvements": [
+        "Some of the variable names could be more descriptive, especially in the TaskApp component.",
+        "The use of magic strings (e.g., 'High', 'Medium', 'Low') could be replaced with enum values for better maintainability.",
+        "The sorting logic could be extracted into a separate function for better reusability and testability."
+      ],
+      "readability": 85,
+      "maintainability": 90,
+      "overall": "The code is well-structured and maintainable, with a clear separation of concerns between components. However, there are some areas for improvement, such as variable naming and code organization. Overall, the code is a good example of how to implement sorting and filtering logic in a React application."
     }
   }
 ]

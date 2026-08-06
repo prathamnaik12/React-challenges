@@ -32,21 +32,59 @@ export default function TaskApp(_props: TaskAppProps) {
     );
   };
 
-  // const completedCount =
-  //   _props.tasks?.filter((task) => task.completed).length ?? 0;
-
-  // const totalCount =
-  //   _props.tasks?.length ?? 0;
-
   const [filter, setFilter] = useState<
     "all" | "active" | "completed"
   >("all");
+
+  const [sortOrder, setSortorder] = useState("recent")
+
   const filteredTasks =
     filter === "all"
       ? _props.tasks
       : filter === "active"
         ? _props.tasks?.filter((task) => !task.completed)
         : _props.tasks?.filter((task) => task.completed);
+
+  const priorityValue = {
+    High: 3,
+    Medium: 2,
+    Low: 1
+  };
+
+  const sortedTasks = [...(filteredTasks ?? [])];
+
+  switch (sortOrder) {
+    case "high":
+      sortedTasks.sort(
+        (a, b) =>
+          priorityValue[
+          b.priority as keyof typeof priorityValue] - priorityValue[a.priority as keyof typeof priorityValue]
+      );
+      break;
+
+    case "low":
+      sortedTasks.sort(
+        (a, b) =>
+          priorityValue[
+          a.priority as keyof typeof priorityValue] - priorityValue[b.priority as keyof typeof priorityValue]
+      );
+      break;
+
+    case "alpha":
+      sortedTasks.sort((a, b) =>
+        a.title.localeCompare(
+          b.title,
+          undefined,
+          { sensitivity: "base" }
+        )
+      );
+      break;
+
+    case "recent":
+    default:
+      break;
+  }
+
   return (
     <div>
       <TaskForm onAddTask={handleAddTask} />
@@ -54,6 +92,8 @@ export default function TaskApp(_props: TaskAppProps) {
         <FilterBar
           filter={filter}
           onFilterChange={setFilter}
+          sortOrder={sortOrder}
+          setSortorder={setSortorder}
         />
       )}
       {filteredTasks?.length === 0 && (
@@ -62,7 +102,7 @@ export default function TaskApp(_props: TaskAppProps) {
         </p>
       )}
       <TaskList
-        tasks={filteredTasks}
+        tasks={sortedTasks}
         countText={`Showing ${filteredTasks?.length ?? 0} of ${_props.tasks?.length ?? 0} tasks`}
         onToggle={handleToggle}
         onDelete={_props.onDelete}

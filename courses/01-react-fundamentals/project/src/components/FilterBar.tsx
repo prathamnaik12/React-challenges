@@ -1,6 +1,8 @@
 interface FilterBarProps {
   filter: "all" | "active" | "completed"
   onFilterChange: (filter: "all" | "active" | "completed") => void
+  sortOrder: string
+  setSortorder: (value: string) => void
 }
 
 export default function FilterBar(props: FilterBarProps) {
@@ -24,6 +26,16 @@ export default function FilterBar(props: FilterBarProps) {
       >
         Completed
       </button>
+      <select
+        id="sort-order"
+        value={props.sortOrder}
+        onChange={(e) => props.setSortorder(e.target.value)}
+      >
+        <option value="recent">Recently Added</option>
+        <option value="high">Priority: High to Low</option>
+        <option value="low">Priority: Low to High</option>
+        <option value="alpha">Alphabetical</option>
+      </select>
     </div>
 
   )
