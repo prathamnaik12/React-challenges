@@ -61,6 +61,7 @@ export default function TaskList(_props: TaskListProps) {
         {tasklist.map((task) => (
           <TaskCard
             key={task.id}
+            taskId={task.id}
             title={task.title}
             description={task.description}
             priority={task.priority}
