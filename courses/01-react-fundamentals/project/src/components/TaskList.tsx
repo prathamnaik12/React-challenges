@@ -74,3 +74,4 @@ export default function TaskList(_props: TaskListProps) {
     </div>
   );
 }
+export { default as FilterBar } from "./FilterBar";
