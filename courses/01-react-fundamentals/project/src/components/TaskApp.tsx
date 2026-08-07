@@ -85,6 +85,29 @@ export default function TaskApp(_props: TaskAppProps) {
       break;
   }
 
+  const [editingId, setEditingId] = useState<
+    string | number | undefined
+  >();
+
+  const handleUpdateTask = (
+    id: string | number,
+    updates: {
+      title: string;
+      description: string;
+      priority: string;
+    }
+  ) => {
+    _props.setTasks?.((prev) =>
+      prev.map((task) =>
+        task.id === id
+          ? { ...task, ...updates }
+          : task
+      )
+    );
+
+    setEditingId(undefined);
+  };
+
   return (
     <div>
       <TaskForm onAddTask={handleAddTask} />
@@ -106,6 +129,10 @@ export default function TaskApp(_props: TaskAppProps) {
         countText={`Showing ${filteredTasks?.length ?? 0} of ${_props.tasks?.length ?? 0} tasks`}
         onToggle={handleToggle}
         onDelete={_props.onDelete}
+        editingId={editingId}
+        onStartEdit={setEditingId}
+        onCancelEdit={() => setEditingId(undefined)}
+        onUpdateTask={handleUpdateTask}
       />
     </div>
   );

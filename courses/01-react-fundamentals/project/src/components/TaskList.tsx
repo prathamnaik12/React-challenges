@@ -8,6 +8,7 @@ export interface Task {
   category?: string
   tags?: string[]
   dueDate?: string | number
+
 }
 
 interface TaskListProps {
@@ -16,6 +17,17 @@ interface TaskListProps {
   onToggle?: (id: string | number) => void
   onDelete?: (id: string | number) => void
   linkToTaskDetail?: boolean
+  editingId?: string | number
+  onStartEdit?: (id: string | number) => void
+  onCancelEdit?: () => void
+  onUpdateTask?: (
+    id: string | number,
+    updates: {
+      title: string
+      description: string
+      priority: string
+    }
+  ) => void
 }
 const tasks: Task[] = [
   {
@@ -68,6 +80,10 @@ export default function TaskList(_props: TaskListProps) {
             completed={task.completed}
             onToggle={_props.onToggle}
             onDelete={_props.onDelete}
+            editingId={_props.editingId}
+            onStartEdit={_props.onStartEdit}
+            onCancelEdit={_props.onCancelEdit}
+            onUpdateTask={_props.onUpdateTask}
           />
         ))}
       </section>
