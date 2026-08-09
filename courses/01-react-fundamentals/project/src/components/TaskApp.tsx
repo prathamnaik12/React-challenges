@@ -2,7 +2,7 @@ import type { Dispatch, SetStateAction } from 'react'
 import type { Task } from './TaskList'
 import TaskList from './TaskList'
 import TaskForm from './TaskForm'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import FilterBar from './FilterBar'
 
 
@@ -37,6 +37,16 @@ export default function TaskApp(_props: TaskAppProps) {
   >("all");
 
   const [sortOrder, setSortorder] = useState("recent")
+  const [search, setSearch] = useState("")
+  const [debouncedSearch, setDebouncedSearch] = useState("");
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearch(search);
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [search]);
 
   const filteredTasks =
     filter === "all"
@@ -45,13 +55,19 @@ export default function TaskApp(_props: TaskAppProps) {
         ? _props.tasks?.filter((task) => !task.completed)
         : _props.tasks?.filter((task) => task.completed);
 
+  const searchedTasks =
+    filteredTasks?.filter((task) =>
+      task.title.toLowerCase().includes(debouncedSearch.toLowerCase()) ||
+      task.description.toLowerCase().includes(debouncedSearch.toLowerCase())
+    ) ?? [];
+
   const priorityValue = {
     High: 3,
     Medium: 2,
     Low: 1
   };
 
-  const sortedTasks = [...(filteredTasks ?? [])];
+  const sortedTasks = [...searchedTasks];
 
   switch (sortOrder) {
     case "high":
@@ -117,16 +133,20 @@ export default function TaskApp(_props: TaskAppProps) {
           onFilterChange={setFilter}
           sortOrder={sortOrder}
           setSortorder={setSortorder}
+          search={search}
+          onSearchChange={setSearch}
+          onClearSearch={() => setSearch("")}
+          isSearching={search !== debouncedSearch}
         />
       )}
-      {filteredTasks?.length === 0 && (
+      {searchedTasks.length === 0 && (
         <p id="filter-empty-message">
-          No tasks match this filter
+          No tasks found
         </p>
       )}
       <TaskList
         tasks={sortedTasks}
-        countText={`Showing ${filteredTasks?.length ?? 0} of ${_props.tasks?.length ?? 0} tasks`}
+        countText={`Showing ${searchedTasks.length} of ${_props.tasks?.length ?? 0} tasks`}
         onToggle={handleToggle}
         onDelete={_props.onDelete}
         editingId={editingId}

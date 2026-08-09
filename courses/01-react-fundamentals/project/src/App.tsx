@@ -1,5 +1,5 @@
 import './App.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import ChallengeList from './components/ChallengeList'
 import TaskList from './components/TaskList'
@@ -16,9 +16,29 @@ const INITIAL_TASKS: Task[] = [
   { id: 4, title: 'Fourth Task', description: 'Description four', priority: 'Medium', completed: false },
   { id: 5, title: 'Fifth Task', description: 'Description five', priority: 'High', completed: false },
 ]
+const STORAGE_KEY = "task-app-tasks";
 
 function AppContent() {
   const [tasks, setTasks] = useState<Task[]>(INITIAL_TASKS)
+
+  useEffect(() => {
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify(tasks)
+    );
+  }, [tasks]);
+
+  useEffect(() => {
+    try {
+      const savedTasks = localStorage.getItem(STORAGE_KEY);
+
+      if (savedTasks) {
+        setTasks(JSON.parse(savedTasks));
+      }
+    } catch {
+      setTasks(INITIAL_TASKS);
+    }
+  }, []);
 
   const handleDelete = (id: string | number) => {
     if (window.confirm('Are you sure?')) {

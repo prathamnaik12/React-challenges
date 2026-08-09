@@ -3,6 +3,10 @@ interface FilterBarProps {
   onFilterChange: (filter: "all" | "active" | "completed") => void
   sortOrder: string
   setSortorder: (value: string) => void
+  search: string
+  onSearchChange: (value: string) => void
+  onClearSearch: () => void
+  isSearching: boolean
 }
 
 export default function FilterBar(props: FilterBarProps) {
@@ -36,7 +40,25 @@ export default function FilterBar(props: FilterBarProps) {
         <option value="low">Priority: Low to High</option>
         <option value="alpha">Alphabetical</option>
       </select>
+      <input
+        type="text"
+        placeholder="Search tasks..."
+        value={props.search}
+        onChange={(e) => props.onSearchChange(e.target.value)}
+      />
+      {props.isSearching && (
+        <p id="searching-indicator">
+          Searching...
+        </p>
+      )}
+      {props.search && (
+        <button
+          id="clear-search"
+          onClick={props.onClearSearch}
+        >
+          Clear search
+        </button>
+      )}
     </div>
-
   )
 }
