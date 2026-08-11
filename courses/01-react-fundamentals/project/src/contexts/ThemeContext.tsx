@@ -1,4 +1,10 @@
-import { createContext, useContext, type ReactNode } from 'react'
+import {
+  createContext,
+  useContext,
+  useEffect,
+  type ReactNode,
+} from 'react'
+import { useLocalStorage } from '../hooks/useLocalStorage'
 
 export type Theme = 'light' | 'dark'
 
@@ -11,16 +17,40 @@ export interface ThemeContextValue {
 export const ThemeContext = createContext<ThemeContextValue | null>(null)
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const value: ThemeContextValue = {
-    theme: 'light',
-    setTheme: () => {},
-    toggleTheme: () => {},
+  const [theme, setTheme] = useLocalStorage<Theme>(
+    'task-app-theme',
+    'light'
+  )
+
+  const toggleTheme = () => {
+    setTheme((currentTheme) =>
+      currentTheme === 'light' ? 'dark' : 'light'
+    )
   }
-  return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme)
+  }, [theme])
+
+  const value: ThemeContextValue = {
+    theme,
+    setTheme,
+    toggleTheme,
+  }
+
+  return (
+    <ThemeContext.Provider value={value}>
+      {children}
+    </ThemeContext.Provider>
+  )
 }
 
 export function useTheme(): ThemeContextValue {
   const ctx = useContext(ThemeContext)
-  if (!ctx) throw new Error('useTheme must be used within ThemeProvider')
+
+  if (!ctx) {
+    throw new Error('useTheme must be used within ThemeProvider')
+  }
+
   return ctx
 }

@@ -2,6 +2,8 @@
   padding: 1rem;
   color: #111;
   background: #fff;
+  min-height: 100vh;
+  transition: background 0.2s, color 0.2s;
 }
 
 .App code {
@@ -22,4 +24,32 @@
   border: 1px solid #ddd;
   border-radius: 6px;
   padding: 1rem;
+}
+
+/* Light theme */
+[data-theme="light"] {
+  background: #fff;
+  color: #111;
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+  background: #111;
+  color: #fff;
+}
+
+[data-theme="dark"] .App {
+  background: #111;
+  color: #fff;
+}
+
+[data-theme="dark"] #task-card {
+  background: #222;
+  border-color: #444;
+  color: #fff;
+}
+
+[data-theme="dark"] .App code {
+  background: #333;
+  color: #fff;
 }

@@ -1,4 +1,5 @@
 import TaskCard from "./TaskCard"
+
 export interface Task {
   id: string | number
   title: string
@@ -8,7 +9,6 @@ export interface Task {
   category: string
   tags: string[]
   dueDate?: string | number
-
 }
 
 interface TaskListProps {
@@ -29,6 +29,7 @@ interface TaskListProps {
     }
   ) => void
 }
+
 const tasks: Task[] = [
   {
     id: 1,
@@ -57,16 +58,12 @@ const tasks: Task[] = [
     category: "General",
     tags: []
   }
-];
-
-/**
- * Renders the list of tasks.
- */
+]
 
 export default function TaskList(_props: TaskListProps) {
   const tasklist = Array.isArray(_props.tasks)
     ? _props.tasks
-    : tasks;
+    : tasks
 
   return (
     <div>
@@ -75,7 +72,8 @@ export default function TaskList(_props: TaskListProps) {
           {_props.countText}
         </p>
       )}
-      <section id="task-list" >
+
+      <section id="task-list">
         {tasklist.map((task) => (
           <TaskCard
             key={task.id}
@@ -97,6 +95,7 @@ export default function TaskList(_props: TaskListProps) {
         ))}
       </section>
     </div>
-  );
+  )
 }
-export { default as FilterBar } from "./FilterBar";
+
+export { default as FilterBar } from "./FilterBar"
