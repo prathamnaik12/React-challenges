@@ -1,10 +1,16 @@
 import { useState } from "react"
+import Button from "./Button"
+import Badge from "./Badge"
+import StatusIndicator from "./StatusIndicator"
 interface TaskCardProps {
   id: string | number
   title: string
   description: string
   priority: string
   completed?: boolean
+  category: string
+  tags: string[]
+  dueDate?: string | number
   onToggle?: (id: string | number) => void
   onDelete?: (id: string | number) => void
   editingId?: string | number
@@ -73,6 +79,7 @@ export default function TaskCard(props: TaskCardProps) {
       {isEditing ? (
         <select
           value={priority}
+
           onChange={(e) => setPriority(e.target.value)}
         >
           <option value="Low">Low</option>
@@ -80,13 +87,34 @@ export default function TaskCard(props: TaskCardProps) {
           <option value="High">High</option>
         </select>
       ) : (
-        <p>Priority: {props.priority}</p>
+        <p>
+          Priority: <Badge type="priority">{props.priority}</Badge>
+        </p>
       )}
-      <p>
-        {props.completed ? "Completed" : "Not Completed"}
+
+      <p id="task-category">
+        Category: <Badge type="category">{props.category}</Badge>
       </p>
+
+      <div id="task-tags">
+        {(props.tags ?? []).map((tag) => (
+          <Badge key={tag} type="tag">
+            {tag}
+          </Badge>
+        ))}
+      </div>
+
+      {props.dueDate && (
+        <p id="task-due-date">
+          Due: {new Date(props.dueDate).toLocaleDateString()}
+        </p>
+      )}
+
+      <StatusIndicator
+        status={props.completed ? "completed" : "active"}
+      />
       {props.onDelete && (
-        <button
+        <Button
           onClick={() => {
             if (window.confirm("Are you sure?")) {
               props.onDelete?.(props.id);
@@ -94,11 +122,11 @@ export default function TaskCard(props: TaskCardProps) {
           }}
         >
           Delete
-        </button>
+        </Button>
       )}
       {isEditing ? (
         <div>
-          <button
+          <Button
             onClick={() => {
               if (!title.trim()) return;
               props.onUpdateTask?.(props.id, {
@@ -109,19 +137,19 @@ export default function TaskCard(props: TaskCardProps) {
             }}
           >
             Save
-          </button>
-          <button
+          </Button>
+          <Button
             onClick={() => props.onCancelEdit?.()}
           >
             Cancel
-          </button>
+          </Button>
         </div>
       ) : (
-        <button
+        <Button
           onClick={() => props.onStartEdit?.(props.id)}
         >
           Edit
-        </button>
+        </Button>
       )}
     </article>
   )

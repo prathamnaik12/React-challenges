@@ -2,8 +2,9 @@ import type { Dispatch, SetStateAction } from 'react'
 import type { Task } from './TaskList'
 import TaskList from './TaskList'
 import TaskForm from './TaskForm'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import FilterBar from './FilterBar'
+import StatsPanel from './StatsPanel'
 
 
 interface TaskAppProps {
@@ -39,6 +40,15 @@ export default function TaskApp(_props: TaskAppProps) {
   const [sortOrder, setSortorder] = useState("recent")
   const [search, setSearch] = useState("")
   const [debouncedSearch, setDebouncedSearch] = useState("");
+  const [category, setCategory] = useState("all")
+
+  const categories = [
+    ...new Set(
+      (_props.tasks ?? [])
+        .map((task) => task.category)
+        .filter(Boolean)
+    )
+  ]
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -55,8 +65,15 @@ export default function TaskApp(_props: TaskAppProps) {
         ? _props.tasks?.filter((task) => !task.completed)
         : _props.tasks?.filter((task) => task.completed);
 
+  const categoryFilteredTasks =
+    category === "all"
+      ? filteredTasks
+      : filteredTasks?.filter(
+        (task) => task.category === category
+      )
+
   const searchedTasks =
-    filteredTasks?.filter((task) =>
+    categoryFilteredTasks?.filter((task) =>
       task.title.toLowerCase().includes(debouncedSearch.toLowerCase()) ||
       task.description.toLowerCase().includes(debouncedSearch.toLowerCase())
     ) ?? [];
@@ -96,10 +113,58 @@ export default function TaskApp(_props: TaskAppProps) {
       );
       break;
 
+    case "due-date":
+      sortedTasks.sort((a, b) => {
+        if (!a.dueDate && !b.dueDate) return 0
+        if (!a.dueDate) return 1
+        if (!b.dueDate) return -1
+
+        return (
+          new Date(a.dueDate).getTime() -
+          new Date(b.dueDate).getTime()
+        )
+      })
+      break
+
     case "recent":
     default:
       break;
   }
+
+  const stats = useMemo(() => {
+    const allTasks = _props.tasks ?? []
+
+    const total = allTasks.length
+
+    const completed = allTasks.filter(
+      (task) => task.completed
+    ).length
+
+    const active = allTasks.filter(
+      (task) => !task.completed
+    ).length
+
+    const overdue = allTasks.filter((task) => {
+      if (!task.dueDate || task.completed) {
+        return false
+      }
+
+      return new Date(task.dueDate).getTime() < Date.now()
+    }).length
+
+    const completedPercentage =
+      total === 0
+        ? 0
+        : Math.round((completed / total) * 100)
+
+    return {
+      total,
+      completed,
+      active,
+      overdue,
+      completedPercentage,
+    }
+  }, [_props.tasks])
 
   const [editingId, setEditingId] = useState<
     string | number | undefined
@@ -137,6 +202,9 @@ export default function TaskApp(_props: TaskAppProps) {
           onSearchChange={setSearch}
           onClearSearch={() => setSearch("")}
           isSearching={search !== debouncedSearch}
+          category={category}
+          categories={categories}
+          onCategoryChange={setCategory}
         />
       )}
       {searchedTasks.length === 0 && (
@@ -144,6 +212,17 @@ export default function TaskApp(_props: TaskAppProps) {
           No tasks found
         </p>
       )}
+
+      {_props.showStatsPanel && (
+        <StatsPanel
+          total={stats.total}
+          completed={stats.completed}
+          active={stats.active}
+          overdue={stats.overdue}
+          completedPercentage={stats.completedPercentage}
+        />
+      )}
+
       <TaskList
         tasks={sortedTasks}
         countText={`Showing ${searchedTasks.length} of ${_props.tasks?.length ?? 0} tasks`}

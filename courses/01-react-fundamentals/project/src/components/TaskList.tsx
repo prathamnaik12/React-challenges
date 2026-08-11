@@ -5,8 +5,8 @@ export interface Task {
   description: string
   priority: string
   completed: boolean
-  category?: string
-  tags?: string[]
+  category: string
+  tags: string[]
   dueDate?: string | number
 
 }
@@ -35,21 +35,27 @@ const tasks: Task[] = [
     title: "Task One",
     description: "these is the first task",
     priority: "medium",
-    completed: false
+    completed: false,
+    category: "General",
+    tags: []
   },
   {
     id: 2,
     title: "Task Two",
     description: "these is the second task",
     priority: "High",
-    completed: false
+    completed: false,
+    category: "General",
+    tags: []
   },
   {
     id: 3,
     title: "Task Three",
     description: "these is the Third task",
     priority: "Low",
-    completed: true
+    completed: false,
+    category: "General",
+    tags: []
   }
 ];
 
@@ -78,6 +84,9 @@ export default function TaskList(_props: TaskListProps) {
             description={task.description}
             priority={task.priority}
             completed={task.completed}
+            category={task.category}
+            tags={task.tags}
+            dueDate={task.dueDate}
             onToggle={_props.onToggle}
             onDelete={_props.onDelete}
             editingId={_props.editingId}
