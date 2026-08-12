@@ -460,22 +460,6 @@
     }
   },
   {
-    "challengeId": "21-react-router",
-    "challengeName": "React Router - Routing and Navigation",
-    "aiReview": {
-      "challengeId": "21-react-router",
-      "timestamp": "2026-08-11T20:44:43.666Z",
-      "score": 0,
-      "feedback": [],
-      "strengths": [],
-      "improvements": [],
-      "readability": 0,
-      "maintainability": 0,
-      "overall": "",
-      "error": "Groq API error (413): Request too large for model `llama-3.1-8b-instant` in organization `org_01kz677ecweagah9y0rvz2t3jx` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Requested 6119, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing"
-    }
-  },
-  {
     "challengeId": "22-data-fetching",
     "challengeName": "Data Fetching - Loading and Error State",
     "aiReview": {
@@ -519,6 +503,29 @@
       "readability": 85,
       "maintainability": 90,
       "overall": "The code is well-structured and follows good practices, but could benefit from some improvements to make it more maintainable and efficient."
+    }
+  },
+  {
+    "challengeId": "21-react-router",
+    "challengeName": "React Router - Routing and Navigation",
+    "aiReview": {
+      "challengeId": "21-react-router",
+      "timestamp": "2026-08-12T08:03:28.688Z",
+      "score": 83,
+      "feedback": [],
+      "strengths": [
+        "The code is well-structured and follows a consistent naming convention.",
+        "The use of TypeScript and React Router is well-implemented.",
+        "The code includes comments and explanations for complex logic."
+      ],
+      "improvements": [
+        "Some functions and variables are not properly typed, which can lead to errors and make the code harder to maintain.",
+        "The use of `try-catch` blocks can be improved by handling specific errors instead of catching all exceptions.",
+        "The code can benefit from more modularization and separation of concerns, making it easier to maintain and extend."
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The code is well-structured and follows good practices, but there are areas for improvement to make it more maintainable and efficient. With some refactoring and attention to detail, the code can become even more robust and scalable."
     }
   }
 ]

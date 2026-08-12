@@ -6754,16 +6754,16 @@
   {
     "challengeId": "21-react-router",
     "challengeName": "React Router - Routing and Navigation",
-    "timestamp": "2026-08-11T20:44:26.492Z",
+    "timestamp": "2026-08-12T08:03:07.640Z",
     "scores": {
       "functionalTests": 100,
       "codeQuality": 100,
       "architecture": 100,
       "bestPractices": 100,
       "e2eTests": 100,
-      "aiReview": 0
+      "aiReview": 83
     },
-    "totalScore": 85,
+    "totalScore": 97.45,
     "passed": true,
     "errors": [],
     "warnings": [],
@@ -6784,7 +6784,7 @@
               "fullName": " Challenge 21: React Router - Routing and Navigation TaskDetailPage should use useParams and render task detail or not found",
               "status": "passed",
               "title": "TaskDetailPage should use useParams and render task detail or not found",
-              "duration": 16,
+              "duration": 20,
               "failureMessages": []
             },
             {
@@ -6795,12 +6795,12 @@
               "fullName": " Challenge 21: React Router - Routing and Navigation TaskDetailPage should have back button with id task-detail-back",
               "status": "passed",
               "title": "TaskDetailPage should have back button with id task-detail-back",
-              "duration": 3,
+              "duration": 4,
               "failureMessages": []
             }
           ],
-          "startTime": 1786481071407,
-          "endTime": 1786481071426,
+          "startTime": 1786521793332,
+          "endTime": 1786521793356,
           "status": "passed",
           "message": "",
           "name": "C:/Users/user/OneDrive/Apps/react-/challenge-engine-react/courses/01-react-fundamentals/project/tests/challenge-21.test.tsx"
@@ -7012,12 +7012,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 289,
+                          "duration": 375,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-08-11T20:44:42.216Z",
+                          "startTime": "2026-08-12T08:03:26.953Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -7046,12 +7046,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 261,
+                          "duration": 353,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-08-11T20:44:42.642Z",
+                          "startTime": "2026-08-12T08:03:27.490Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -7080,12 +7080,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 277,
+                          "duration": 314,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-08-11T20:44:42.919Z",
+                          "startTime": "2026-08-12T08:03:27.861Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -7107,27 +7107,41 @@
     },
     "aiReviewResults": {
       "challengeId": "21-react-router",
-      "timestamp": "2026-08-11T20:44:43.666Z",
-      "score": 0,
+      "timestamp": "2026-08-12T08:03:28.688Z",
+      "score": 83,
       "feedback": [],
-      "strengths": [],
-      "improvements": [],
-      "readability": 0,
-      "maintainability": 0,
-      "overall": "",
-      "error": "Groq API error (413): Request too large for model `llama-3.1-8b-instant` in organization `org_01kz677ecweagah9y0rvz2t3jx` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Requested 6119, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing"
+      "strengths": [
+        "The code is well-structured and follows a consistent naming convention.",
+        "The use of TypeScript and React Router is well-implemented.",
+        "The code includes comments and explanations for complex logic."
+      ],
+      "improvements": [
+        "Some functions and variables are not properly typed, which can lead to errors and make the code harder to maintain.",
+        "The use of `try-catch` blocks can be improved by handling specific errors instead of catching all exceptions.",
+        "The code can benefit from more modularization and separation of concerns, making it easier to maintain and extend."
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The code is well-structured and follows good practices, but there are areas for improvement to make it more maintainable and efficient. With some refactoring and attention to detail, the code can become even more robust and scalable."
     },
     "aiResults": {
       "challengeId": "21-react-router",
-      "timestamp": "2026-08-11T20:44:43.666Z",
-      "score": 0,
+      "timestamp": "2026-08-12T08:03:28.688Z",
+      "score": 83,
       "feedback": [],
-      "strengths": [],
-      "improvements": [],
-      "readability": 0,
-      "maintainability": 0,
-      "overall": "",
-      "error": "Groq API error (413): Request too large for model `llama-3.1-8b-instant` in organization `org_01kz677ecweagah9y0rvz2t3jx` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Requested 6119, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing"
+      "strengths": [
+        "The code is well-structured and follows a consistent naming convention.",
+        "The use of TypeScript and React Router is well-implemented.",
+        "The code includes comments and explanations for complex logic."
+      ],
+      "improvements": [
+        "Some functions and variables are not properly typed, which can lead to errors and make the code harder to maintain.",
+        "The use of `try-catch` blocks can be improved by handling specific errors instead of catching all exceptions.",
+        "The code can benefit from more modularization and separation of concerns, making it easier to maintain and extend."
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The code is well-structured and follows good practices, but there are areas for improvement to make it more maintainable and efficient. With some refactoring and attention to detail, the code can become even more robust and scalable."
     }
   },
   {
