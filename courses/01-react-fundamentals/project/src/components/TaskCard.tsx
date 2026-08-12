@@ -1,7 +1,9 @@
-import { useState } from "react"
+import React, { useState } from "react"
+import { Link } from "react-router-dom"
 import Button from "./Button"
 import Badge from "./Badge"
 import StatusIndicator from "./StatusIndicator"
+
 interface TaskCardProps {
   id: string | number
   title: string
@@ -24,29 +26,29 @@ interface TaskCardProps {
       priority: string
     }
   ) => void
+  linkToTaskDetail?: boolean
 }
 
-
-
-export default function TaskCard(props: TaskCardProps) {
-
+function TaskCard(props: TaskCardProps) {
   const [title, setTitle] = useState(props.title)
   const [description, setDescription] = useState(props.description)
   const [priority, setPriority] = useState(props.priority)
 
   const isEditing =
     props.editingId !== undefined &&
-    props.editingId === props.id;
+    props.editingId === props.id
 
   return (
-    <article id="task-card"
+    <article
+      id="task-card"
       data-completed={props.completed}
     >
       <input
         type="checkbox"
         checked={props.completed}
-        onChange={() => props.onToggle?.(props.id!)}
+        onChange={() => props.onToggle?.(props.id)}
       />
+
       {isEditing ? (
         <input
           value={title}
@@ -55,21 +57,32 @@ export default function TaskCard(props: TaskCardProps) {
       ) : (
         <h2
           style={{
-            textDecoration: props.completed ? "line-through" : "none"
+            textDecoration: props.completed
+              ? "line-through"
+              : "none",
           }}
         >
-          {props.title}
+          <Link
+            to={`/challenge/21-react-router/task/${props.id}`}
+          >
+            {props.title}
+          </Link>
         </h2>
       )}
+
       {isEditing ? (
         <textarea
           value={description}
-          onChange={(e) => setDescription(e.target.value)}
+          onChange={(e) =>
+            setDescription(e.target.value)
+          }
         />
       ) : (
         <p
           style={{
-            textDecoration: props.completed ? "line-through" : "none"
+            textDecoration: props.completed
+              ? "line-through"
+              : "none",
           }}
         >
           {props.description}
@@ -79,8 +92,9 @@ export default function TaskCard(props: TaskCardProps) {
       {isEditing ? (
         <select
           value={priority}
-
-          onChange={(e) => setPriority(e.target.value)}
+          onChange={(e) =>
+            setPriority(e.target.value)
+          }
         >
           <option value="Low">Low</option>
           <option value="Medium">Medium</option>
@@ -88,12 +102,18 @@ export default function TaskCard(props: TaskCardProps) {
         </select>
       ) : (
         <p>
-          Priority: <Badge type="priority">{props.priority}</Badge>
+          Priority:{" "}
+          <Badge type="priority">
+            {props.priority}
+          </Badge>
         </p>
       )}
 
       <p id="task-category">
-        Category: <Badge type="category">{props.category}</Badge>
+        Category:{" "}
+        <Badge type="category">
+          {props.category}
+        </Badge>
       </p>
 
       <div id="task-tags">
@@ -106,51 +126,76 @@ export default function TaskCard(props: TaskCardProps) {
 
       {props.dueDate && (
         <p id="task-due-date">
-          Due: {new Date(props.dueDate).toLocaleDateString()}
+          Due:{" "}
+          {new Date(
+            props.dueDate
+          ).toLocaleDateString()}
         </p>
       )}
 
       <StatusIndicator
-        status={props.completed ? "completed" : "active"}
+        status={
+          props.completed
+            ? "completed"
+            : "active"
+        }
       />
+
       {props.onDelete && (
         <Button
           onClick={() => {
             if (window.confirm("Are you sure?")) {
-              props.onDelete?.(props.id);
+              props.onDelete?.(props.id)
             }
           }}
         >
           Delete
         </Button>
       )}
+
       {isEditing ? (
         <div>
           <Button
             onClick={() => {
-              if (!title.trim()) return;
+              if (!title.trim()) return
+
               props.onUpdateTask?.(props.id, {
                 title,
                 description,
                 priority,
-              });
+              })
             }}
           >
             Save
           </Button>
+
           <Button
-            onClick={() => props.onCancelEdit?.()}
+            onClick={() =>
+              props.onCancelEdit?.()
+            }
           >
             Cancel
           </Button>
         </div>
       ) : (
         <Button
-          onClick={() => props.onStartEdit?.(props.id)}
+          onClick={() =>
+            props.onStartEdit?.(props.id)
+          }
         >
           Edit
         </Button>
       )}
+
+      {props.linkToTaskDetail && (
+        <Link
+          to={`/challenge/21-react-router/task/${props.id}`}
+        >
+          View Details
+        </Link>
+      )}
     </article>
   )
 }
+
+export default React.memo(TaskCard)

@@ -1,4 +1,6 @@
+import React from "react"
 import TaskCard from "./TaskCard"
+import ErrorBoundary from "./ErrorBoundary"
 
 export interface Task {
   id: string | number
@@ -38,7 +40,7 @@ const tasks: Task[] = [
     priority: "medium",
     completed: false,
     category: "General",
-    tags: []
+    tags: [],
   },
   {
     id: 2,
@@ -47,7 +49,7 @@ const tasks: Task[] = [
     priority: "High",
     completed: false,
     category: "General",
-    tags: []
+    tags: [],
   },
   {
     id: 3,
@@ -56,11 +58,11 @@ const tasks: Task[] = [
     priority: "Low",
     completed: false,
     category: "General",
-    tags: []
-  }
+    tags: [],
+  },
 ]
 
-export default function TaskList(_props: TaskListProps) {
+function TaskList(_props: TaskListProps) {
   const tasklist = Array.isArray(_props.tasks)
     ? _props.tasks
     : tasks
@@ -73,29 +75,34 @@ export default function TaskList(_props: TaskListProps) {
         </p>
       )}
 
-      <section id="task-list">
-        {tasklist.map((task) => (
-          <TaskCard
-            key={task.id}
-            id={task.id}
-            title={task.title}
-            description={task.description}
-            priority={task.priority}
-            completed={task.completed}
-            category={task.category}
-            tags={task.tags}
-            dueDate={task.dueDate}
-            onToggle={_props.onToggle}
-            onDelete={_props.onDelete}
-            editingId={_props.editingId}
-            onStartEdit={_props.onStartEdit}
-            onCancelEdit={_props.onCancelEdit}
-            onUpdateTask={_props.onUpdateTask}
-          />
-        ))}
-      </section>
+      <ErrorBoundary>
+        <section id="task-list">
+          {tasklist.map((task) => (
+            <TaskCard
+              key={task.id}
+              id={task.id}
+              title={task.title}
+              description={task.description}
+              priority={task.priority}
+              completed={task.completed}
+              category={task.category}
+              tags={task.tags}
+              dueDate={task.dueDate}
+              onToggle={_props.onToggle}
+              onDelete={_props.onDelete}
+              editingId={_props.editingId}
+              onStartEdit={_props.onStartEdit}
+              onCancelEdit={_props.onCancelEdit}
+              onUpdateTask={_props.onUpdateTask}
+              linkToTaskDetail={_props.linkToTaskDetail}
+            />
+          ))}
+        </section>
+      </ErrorBoundary>
     </div>
   )
 }
+
+export default React.memo(TaskList)
 
 export { default as FilterBar } from "./FilterBar"

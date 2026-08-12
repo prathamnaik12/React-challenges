@@ -108,7 +108,7 @@ export async function reviewCodeWithAI(challengeId, filesToReview, projectDir) {
 }
 
 function buildReviewPrompt(challengeId, codeSnippets, challengeContext = '') {
-  const codeContext = codeSnippets.map(s => 
+  const codeContext = codeSnippets.map(s =>
     `File: ${s.file}\n\`\`\`typescript\n${s.content}\n\`\`\``
   ).join('\n\n');
 
