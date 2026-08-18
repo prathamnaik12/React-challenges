@@ -35,7 +35,7 @@ if (existsSync(envPath)) {
 
 const GROQ_API_KEY = process.env.GROQ_API_KEY || '';
 const GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions';
-const MODEL = 'llama-3.1-8b-instant';
+const MODEL = 'openai/gpt-oss-20b';
 
 // File extensions to include in code review
 const CODE_EXTENSIONS = ['.ts', '.tsx', '.js', '.jsx'];
@@ -63,7 +63,7 @@ export async function reviewCodeWithAI(challengeId, challengeMetadata, projectDi
     // 1. Load challenge instructions and requirements from README.md (merged file)
     const challengeDir = join(projectDir, 'challenges', challengeId);
     const readmePath = join(challengeDir, 'README.md');
-    
+
     let challengeInstructions = '';
     let challengeRequirements = '';
 
@@ -84,7 +84,7 @@ export async function reviewCodeWithAI(challengeId, challengeMetadata, projectDi
     // 2. Read all user-created code files
     const codeFiles = [];
     const missingFiles = [];
-    
+
     for (const filePath of challengeMetadata.filesToCheck || []) {
       const fullPath = join(projectDir, filePath);
       if (existsSync(fullPath)) {
@@ -213,7 +213,7 @@ function buildReviewPrompt(challengeId, challengeMetadata, instructions, require
   const patternsRequired = challengeMetadata.patternsRequired || [];
 
   // Build code context
-  const codeContext = codeFiles.map(f => 
+  const codeContext = codeFiles.map(f =>
     `File: ${f.file}\n\`\`\`typescript\n${f.content}\n\`\`\``
   ).join('\n\n---\n\n');
 

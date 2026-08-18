@@ -57,17 +57,17 @@ npm run review -- --challenge=01-store-setup
 
 ## 📊 Progress Evidence
 
-*Auto-updated when you run review. Last run: 12/8/2026, 1:33:33 pm*
+*Auto-updated when you run review. Last run: 18/8/2026, 7:22:13 pm*
 
 | Metric | Value |
 |--------|-------|
-| Challenges completed | 0 / 13 (0%) |
-| Average score | 0% |
+| Challenges completed | 2 / 13 (15.4%) |
+| Average score | 97.1% |
 
 | Challenge | Skills covered | Status |
 |-----------|----------------|--------|
-| Store Setup with configureStore | Redux, Redux Toolkit, configureStore, Provider | — |
-| First Slice with createSlice | Redux Toolkit, createSlice, reducers, actions | — |
+| Store Setup with configureStore | Redux, Redux Toolkit, configureStore, Provider | Passed |
+| First Slice with createSlice | Redux Toolkit, createSlice, reducers, actions | Passed |
 | Reading and Dispatching in Components | React-Redux, useSelector, useDispatch, typed hooks | — |
 | Multiple Slices in the Store | Redux, multiple reducers, slice per domain | — |
 | Async Logic with createAsyncThunk | Redux Toolkit, createAsyncThunk, extraReducers, pending/fulfilled/rejected | — |
