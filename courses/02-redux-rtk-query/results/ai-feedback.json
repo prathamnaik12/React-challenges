@@ -101,5 +101,25 @@
       "overall": "The implementation correctly demonstrates reading state and dispatching actions using typed hooks, and the UI meets the test‑id requirements. The main issue is the incorrect typed‑hook syntax in `hooks.ts`, which should be fixed to avoid runtime failures. Once that is addressed, the component will fully satisfy the challenge.",
       "requirementCompliance": 90
     }
+  },
+  {
+    "challengeId": "05-async-thunks",
+    "challengeName": "Async Logic with createAsyncThunk",
+    "aiReview": {
+      "challengeId": "05-async-thunks",
+      "timestamp": "2026-08-19T12:18:17.200Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [
+        "Correct implementation of `createAsyncThunk` and `extraReducers` to handle async states.\",",
+        "Clear and concise type definitions for `User` and `UsersState`, improving type safety.\",",
+        "Logical separation of concerns: slices"
+      ],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "{\n  \"readability\": 85,\n  \"maintainability\": 80,\n  \"strengths\": [\n    \"Correct implementation of `createAsyncThunk` and `extraReducers` to handle async states.\",\n    \"Clear and concise type definitions for `User` and `UsersState`, improving type safety.\",\n    \"Logical separation of concerns: slices",
+      "requirementCompliance": 0
+    }
   }
 ]
