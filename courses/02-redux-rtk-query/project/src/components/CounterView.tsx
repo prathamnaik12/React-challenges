@@ -6,7 +6,7 @@ export default function CounterView() {
   const dispatch = useAppDispatch()
 
   return (
-    <div id="counter-view">
+    <div data-testid="counter-view">
       <div data-testid="counter-value">{count}</div>
 
       <button

@@ -1,10 +1,10 @@
 {
   "courseId": "02-redux-rtk-query",
   "courseName": "Redux & RTK Query",
-  "lastUpdated": "2026-08-19T11:55:44.219Z",
+  "lastUpdated": "2026-08-19T12:02:47.348Z",
   "totalChallenges": 13,
   "completedChallenges": 4,
-  "averageScore": 96.3,
+  "averageScore": 97.6,
   "completionPercentage": 30.8,
   "badgeLevel": "none",
   "challengeResults": [
@@ -23,7 +23,7 @@
     {
       "challengeId": "03-reading-dispatching",
       "challengeName": "Reading and Dispatching in Components",
-      "score": 92.755,
+      "score": 97.9,
       "passed": true
     },
     {
