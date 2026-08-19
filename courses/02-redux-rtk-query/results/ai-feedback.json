@@ -48,5 +48,56 @@
       "overall": "The implementation satisfies all functional requirements: a counter slice with increment/decrement reducers, proper store integration, and TypeScript typings. While the code is clean and follows RTK conventions, minor refactors (removing redundant middleware, using named exports, and updating hook syntax) would improve clarity and future‑proof the setup.",
       "requirementCompliance": 100
     }
+  },
+  {
+    "challengeId": "04-multiple-slices",
+    "challengeName": "Multiple Slices in the Store",
+    "aiReview": {
+      "challengeId": "04-multiple-slices",
+      "timestamp": "2026-08-19T11:54:46.715Z",
+      "score": 88,
+      "feedback": [],
+      "strengths": [
+        "Clear separation of concerns: counter and UI logic live in their own slices.",
+        "Proper use of `createSlice` and `configureStore` – the store is configured with a reducer map.",
+        "Typed `RootState` and `AppDispatch` provide strong typing for the rest of the app."
+      ],
+      "improvements": [
+        "src/store/hooks.ts – the `useDispatch.withTypes<AppDispatch>()` syntax is non‑standard. Replace with the recommended `const useAppDispatch = () => useDispatch<AppDispatch>();` or `export const useAppDispatch = useDispatch<AppDispatch>;` to avoid type‑inference issues.",
+        "src/store/store.ts – the `middleware` option is redundant (`getDefaultMiddleware()` is already the default). Remove the property or add custom middleware if needed.",
+        "src/store/slices/uiSlice.ts – add an explicit type for the slice state (e.g., `interface UiState { sidebarOpen: boolean; }`) and export it for use in selectors or components.",
+        "Add brief JSDoc comments to each slice and the store configuration to aid future developers.",
+        "Consider adding unit tests for the reducers to ensure state transitions are correct.",
+        "If the project will grow, create a dedicated `store/index.ts` that re‑exports the store, hooks, and slice actions for a cleaner import path."
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The implementation satisfies all functional requirements: a second UI slice is created, both slices are registered in the store, and TypeScript types are in place. The code is clean and follows RTK patterns, though the typed hooks and middleware configuration could be refined for clarity and future extensibility.",
+      "requirementCompliance": 95
+    }
+  },
+  {
+    "challengeId": "03-reading-dispatching",
+    "challengeName": "Reading and Dispatching in Components",
+    "aiReview": {
+      "challengeId": "03-reading-dispatching",
+      "timestamp": "2026-08-19T11:55:41.657Z",
+      "score": 85,
+      "feedback": [],
+      "strengths": [
+        "Typed hooks (`useAppDispatch`, `useAppSelector`) are correctly defined in `src/store/hooks.ts`, providing strong type safety across the app.",
+        "The `CounterView` component cleanly separates state reading and dispatching logic, uses descriptive data‑testids, and follows the React‑Redux hook pattern.",
+        "The store configuration in `src/store/store.ts` is concise, uses `configureStore`, and clearly lists reducers and middleware."
+      ],
+      "improvements": [
+        "Add the route for `/challenge/03-reading-dispatching` in the app’s router (likely `src/App.tsx` or a dedicated routing file) so that `CounterView` is actually rendered when the URL matches.",
+        "If the counter slice stores its value under a property (e.g., `state.counter.value`), update the selector in `CounterView` to `useAppSelector(state => state.counter.value)` to avoid potential runtime errors.",
+        "Consider adding a small comment block in `src/store/hooks.ts` explaining why typed hooks are used, which will aid future contributors in understanding the pattern."
+      ],
+      "readability": 90,
+      "maintainability": 85,
+      "overall": "The implementation satisfies the core functional requirements: typed hooks, correct use of `useSelector`/`useDispatch`, and required data‑testids. The code is clean and well‑structured, but the missing route configuration means the component will not be displayed unless added elsewhere. Once the routing is in place, the solution will fully meet the challenge criteria.",
+      "requirementCompliance": 80
+    }
   }
 ]

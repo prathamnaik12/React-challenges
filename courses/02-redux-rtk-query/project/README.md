@@ -57,19 +57,19 @@ npm run review -- --challenge=01-store-setup
 
 ## 📊 Progress Evidence
 
-*Auto-updated when you run review. Last run: 18/8/2026, 7:22:13 pm*
+*Auto-updated when you run review. Last run: 19/8/2026, 5:25:44 pm*
 
 | Metric | Value |
 |--------|-------|
-| Challenges completed | 2 / 13 (15.4%) |
-| Average score | 97.1% |
+| Challenges completed | 4 / 13 (30.8%) |
+| Average score | 96.3% |
 
 | Challenge | Skills covered | Status |
 |-----------|----------------|--------|
 | Store Setup with configureStore | Redux, Redux Toolkit, configureStore, Provider | Passed |
 | First Slice with createSlice | Redux Toolkit, createSlice, reducers, actions | Passed |
-| Reading and Dispatching in Components | React-Redux, useSelector, useDispatch, typed hooks | — |
-| Multiple Slices in the Store | Redux, multiple reducers, slice per domain | — |
+| Reading and Dispatching in Components | React-Redux, useSelector, useDispatch, typed hooks | Passed |
+| Multiple Slices in the Store | Redux, multiple reducers, slice per domain | Passed |
 | Async Logic with createAsyncThunk | Redux Toolkit, createAsyncThunk, extraReducers, pending/fulfilled/rejected | — |
 | RTK Query Setup and API Slice | RTK Query, createApi, fetchBaseQuery, API reducer and middleware | — |
 | Query Endpoints and useQuery Hooks | RTK Query, useGetUsersQuery, loading, error, data | — |
