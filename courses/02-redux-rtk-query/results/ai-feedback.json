@@ -205,5 +205,32 @@
       "overall": "The implementation satisfies all functional requirements and follows the RTK pattern for async logic. The code is clean, well‑typed, and properly integrated into the store. Minor refactoring (exporting types, adding documentation) would improve reusability and maintainability.",
       "requirementCompliance": 95
     }
+  },
+  {
+    "challengeId": "09-mutations",
+    "challengeName": "Mutations with useMutation",
+    "aiReview": {
+      "challengeId": "09-mutations",
+      "timestamp": "2026-08-20T11:51:43.751Z",
+      "score": 84,
+      "feedback": [],
+      "strengths": [
+        "Mutation endpoint `addPost` is correctly defined with `builder.mutation` and invalidates the `Post` list tag.",
+        "The `AddPostForm` component uses `useAddPostMutation` correctly, handles loading state, and clears the form on success.",
+        "Both `getUsers` and `getPosts` queries provide cache tags, enabling proper refetching after mutations."
+      ],
+      "improvements": [
+        "In `src/api/apiSlice.ts`, the `baseQuery` is currently a no‑op that only returns users. Either replace it with `fetchBaseQuery` or remove it entirely since all endpoints use `queryFn`.",
+        "Add explicit error handling in `AddPostForm` (e.g., a `try/catch` around `addPost(...).unwrap()`) so that the UI can display the actual error message instead of a generic \"Failed to add post\".",
+        "Ensure that the route `/challenge/09-mutations` renders `AddPostForm`. The current file list does not show an `App` or routing configuration that includes this component.",
+        "Consider using the `query` syntax (`query: (body) => ({ url: '/posts', method: 'POST', body })`) for the mutation to keep the API slice consistent with the query endpoints.",
+        "Add `data-testid` attributes for the success and error messages in `AddPostForm` to make the component easier to test.",
+        "Remove unused type aliases (`Users`, `Posts`) or document why they are kept for future use."
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The implementation satisfies the core requirements: a mutation endpoint, a form that triggers it, and proper cache invalidation. The code is readable and follows RTK Query conventions, but a few small adjustments—especially around routing, error handling, and baseQuery usage—will bring it fully in line with best practices and ensure maintainability.",
+      "requirementCompliance": 85
+    }
   }
 ]
