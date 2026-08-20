@@ -1,10 +1,10 @@
 {
   "courseId": "02-redux-rtk-query",
   "courseName": "Redux & RTK Query",
-  "lastUpdated": "2026-08-20T11:38:16.204Z",
+  "lastUpdated": "2026-08-20T11:41:38.109Z",
   "totalChallenges": 13,
   "completedChallenges": 8,
-  "averageScore": 94.5,
+  "averageScore": 97.8,
   "completionPercentage": 61.5,
   "badgeLevel": "bronze",
   "challengeResults": [
@@ -35,13 +35,13 @@
     {
       "challengeId": "05-async-thunks",
       "challengeName": "Async Logic with createAsyncThunk",
-      "score": 85,
+      "score": 98.65,
       "passed": true
     },
     {
       "challengeId": "06-rtk-query-setup",
       "challengeName": "RTK Query Setup and API Slice",
-      "score": 85,
+      "score": 97.9,
       "passed": true
     },
     {

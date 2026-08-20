@@ -1200,16 +1200,16 @@
   {
     "challengeId": "05-async-thunks",
     "challengeName": "Async Logic with createAsyncThunk",
-    "timestamp": "2026-08-19T12:17:57.246Z",
+    "timestamp": "2026-08-20T11:41:18.187Z",
     "scores": {
       "functionalTests": 100,
       "codeQuality": 100,
       "architecture": 100,
       "bestPractices": 100,
       "e2eTests": 100,
-      "aiReview": 0
+      "aiReview": 91
     },
-    "totalScore": 85,
+    "totalScore": 98.65,
     "passed": true,
     "errors": [],
     "warnings": [],
@@ -1230,7 +1230,7 @@
               "fullName": " Challenge 05: Async Logic with createAsyncThunk usersSlice uses createAsyncThunk",
               "status": "passed",
               "title": "usersSlice uses createAsyncThunk",
-              "duration": 2,
+              "duration": 3,
               "failureMessages": []
             },
             {
@@ -1241,7 +1241,7 @@
               "fullName": " Challenge 05: Async Logic with createAsyncThunk usersSlice uses extraReducers",
               "status": "passed",
               "title": "usersSlice uses extraReducers",
-              "duration": 1,
+              "duration": 2,
               "failureMessages": []
             },
             {
@@ -1252,12 +1252,12 @@
               "fullName": " Challenge 05: Async Logic with createAsyncThunk store includes users reducer",
               "status": "passed",
               "title": "store includes users reducer",
-              "duration": 1,
+              "duration": 0,
               "failureMessages": []
             }
           ],
-          "startTime": 1787141881897,
-          "endTime": 1787141881902,
+          "startTime": 1787226082967,
+          "endTime": 1787226082972,
           "status": "passed",
           "message": "",
           "name": "C:/Users/user/OneDrive/Apps/react-/challenge-engine-react/courses/02-redux-rtk-query/project/tests/challenge-05.test.tsx"
@@ -1380,12 +1380,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 325,
+                          "duration": 331,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-08-19T12:18:15.883Z",
+                          "startTime": "2026-08-20T11:41:35.202Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -1414,12 +1414,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 287,
+                          "duration": 246,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-08-19T12:18:16.342Z",
+                          "startTime": "2026-08-20T11:41:35.654Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -1441,50 +1441,64 @@
     },
     "aiReviewResults": {
       "challengeId": "05-async-thunks",
-      "timestamp": "2026-08-19T12:18:17.200Z",
-      "score": 0,
+      "timestamp": "2026-08-20T11:41:36.340Z",
+      "score": 91,
       "feedback": [],
       "strengths": [
-        "Correct implementation of `createAsyncThunk` and `extraReducers` to handle async states.\",",
-        "Clear and concise type definitions for `User` and `UsersState`, improving type safety.\",",
-        "Logical separation of concerns: slices"
+        "Correct implementation of `createAsyncThunk` and `extraReducers` for async logic.",
+        "Strong type safety: `User` type derived with `Awaited<ReturnType>` and state interface defined.",
+        "Clean store configuration: users reducer added alongside existing slices and RTK Query middleware.",
+        "No console statements and ESLint‑compliant code."
       ],
-      "improvements": [],
-      "readability": 0,
-      "maintainability": 0,
-      "overall": "{\n  \"readability\": 85,\n  \"maintainability\": 80,\n  \"strengths\": [\n    \"Correct implementation of `createAsyncThunk` and `extraReducers` to handle async states.\",\n    \"Clear and concise type definitions for `User` and `UsersState`, improving type safety.\",\n    \"Logical separation of concerns: slices",
-      "requirementCompliance": 0
+      "improvements": [
+        "Export the `User` type from `usersSlice.ts` so it can be reused elsewhere (e.g., in components).",
+        "Add a brief JSDoc comment above the thunk and slice explaining the intent and payload shape.",
+        "Handle the rejected case more defensively: check `action.payload` if you ever add `rejectWithValue` in the future.",
+        "Consider adding a separate `api` folder for mock API utilities to keep the slice focused on state logic.",
+        "If you plan to extend the slice, move the `initialState` to a dedicated file or constant for easier testing."
+      ],
+      "readability": 90,
+      "maintainability": 85,
+      "overall": "The implementation satisfies all functional requirements and follows the RTK pattern for async logic. The code is clean, well‑typed, and properly integrated into the store. Minor refactoring (exporting types, adding documentation) would improve reusability and maintainability.",
+      "requirementCompliance": 95
     },
     "aiResults": {
       "challengeId": "05-async-thunks",
-      "timestamp": "2026-08-19T12:18:17.200Z",
-      "score": 0,
+      "timestamp": "2026-08-20T11:41:36.340Z",
+      "score": 91,
       "feedback": [],
       "strengths": [
-        "Correct implementation of `createAsyncThunk` and `extraReducers` to handle async states.\",",
-        "Clear and concise type definitions for `User` and `UsersState`, improving type safety.\",",
-        "Logical separation of concerns: slices"
+        "Correct implementation of `createAsyncThunk` and `extraReducers` for async logic.",
+        "Strong type safety: `User` type derived with `Awaited<ReturnType>` and state interface defined.",
+        "Clean store configuration: users reducer added alongside existing slices and RTK Query middleware.",
+        "No console statements and ESLint‑compliant code."
       ],
-      "improvements": [],
-      "readability": 0,
-      "maintainability": 0,
-      "overall": "{\n  \"readability\": 85,\n  \"maintainability\": 80,\n  \"strengths\": [\n    \"Correct implementation of `createAsyncThunk` and `extraReducers` to handle async states.\",\n    \"Clear and concise type definitions for `User` and `UsersState`, improving type safety.\",\n    \"Logical separation of concerns: slices",
-      "requirementCompliance": 0
+      "improvements": [
+        "Export the `User` type from `usersSlice.ts` so it can be reused elsewhere (e.g., in components).",
+        "Add a brief JSDoc comment above the thunk and slice explaining the intent and payload shape.",
+        "Handle the rejected case more defensively: check `action.payload` if you ever add `rejectWithValue` in the future.",
+        "Consider adding a separate `api` folder for mock API utilities to keep the slice focused on state logic.",
+        "If you plan to extend the slice, move the `initialState` to a dedicated file or constant for easier testing."
+      ],
+      "readability": 90,
+      "maintainability": 85,
+      "overall": "The implementation satisfies all functional requirements and follows the RTK pattern for async logic. The code is clean, well‑typed, and properly integrated into the store. Minor refactoring (exporting types, adding documentation) would improve reusability and maintainability.",
+      "requirementCompliance": 95
     }
   },
   {
     "challengeId": "06-rtk-query-setup",
     "challengeName": "RTK Query Setup and API Slice",
-    "timestamp": "2026-08-20T11:02:50.200Z",
+    "timestamp": "2026-08-20T11:40:14.043Z",
     "scores": {
       "functionalTests": 100,
       "codeQuality": 100,
       "architecture": 100,
       "bestPractices": 100,
       "e2eTests": 100,
-      "aiReview": 0
+      "aiReview": 86
     },
-    "totalScore": 85,
+    "totalScore": 97.9,
     "passed": true,
     "errors": [],
     "warnings": [],
@@ -1505,7 +1519,7 @@
               "fullName": " Challenge 06: RTK Query Setup apiSlice uses createApi",
               "status": "passed",
               "title": "apiSlice uses createApi",
-              "duration": 1,
+              "duration": 2,
               "failureMessages": []
             },
             {
@@ -1516,7 +1530,7 @@
               "fullName": " Challenge 06: RTK Query Setup apiSlice has baseQuery or fetchBaseQuery",
               "status": "passed",
               "title": "apiSlice has baseQuery or fetchBaseQuery",
-              "duration": 1,
+              "duration": 0,
               "failureMessages": []
             },
             {
@@ -1531,8 +1545,8 @@
               "failureMessages": []
             }
           ],
-          "startTime": 1787223776497,
-          "endTime": 1787223776500,
+          "startTime": 1787226018654,
+          "endTime": 1787226018657,
           "status": "passed",
           "message": "",
           "name": "C:/Users/user/OneDrive/Apps/react-/challenge-engine-react/courses/02-redux-rtk-query/project/tests/challenge-06.test.tsx"
@@ -1655,12 +1669,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 421,
+                          "duration": 306,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-08-20T11:03:09.462Z",
+                          "startTime": "2026-08-20T11:40:30.891Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -1689,12 +1703,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 613,
+                          "duration": 249,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-08-20T11:03:10.058Z",
+                          "startTime": "2026-08-20T11:40:31.324Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -1716,51 +1730,49 @@
     },
     "aiReviewResults": {
       "challengeId": "06-rtk-query-setup",
-      "timestamp": "2026-08-20T11:03:11.228Z",
-      "score": 0,
+      "timestamp": "2026-08-20T11:40:32.042Z",
+      "score": 86,
       "feedback": [],
       "strengths": [
-        "Clear separation of concerns – API logic lives in `src/api/apiSlice.ts` and store configuration is in `src/store/store.ts`.\",",
-        "TypeScript is used consistently; the `Users` type is derived from the mock API return type, ensuring type safety.\",",
-        "Custom mock server (`src/api/mockServer.ts`) is well‑structured and simulates realistic network delays, making it easy to test RTK Query behavior.",
-        "improvements\": [",
-        "In `src/api/apiSlice.ts` the `baseQuery` is defined but never used. Either remove it or replace the endpoint with a standard `query: 'users'` that uses `fetchBaseQuery`. This will reduce confusion and align with typical RTK Query patterns.\","
+        "Implemented a fully typed RTK Query API slice with `createApi` and a custom `baseQuery` that works with the mock server.",
+        "Provided clear tag-based cache invalidation for both users and posts, enabling efficient refetching.",
+        "Store configuration correctly includes the API reducer and middleware, and typed hooks (`useAppDispatch`, `useAppSelector`) are set up for consistent usage across the app."
       ],
       "improvements": [
-        "In `src/api/apiSlice.ts` the `baseQuery` is defined but never used. Either remove it or replace the endpoint with a standard `query: 'users'` that uses `fetchBaseQuery`. This will reduce confusion and align with typical RTK Query patterns.\",",
-        "Add error handling to the `queryFn` in the `getUsers` endpoint: return `{ error: new Error('Failed to fetch users') }` when the mock API throws. This ensures the hook receives proper error state.\",",
-        "Type the `baseQuery` function explicitly (`baseQuery: async (_: any, api, extraOptions) => { ... }`) or switch to `fetchBaseQuery` so that the return shape (`{ data }`) is inferred correctly.\",",
-        "Consider adding `providesTags`/`invalidatesTags` to the endpoint for cache invalidation when users are created/updated/deleted. This will make the slice more useful for future challenges.\",",
-        "Add a comment in `src/api/apiSlice.ts` explaining why a custom `baseQuery` is used (e.g., to avoid network calls during tests)."
+        "The `baseQuery` defined in `apiSlice.ts` is never used by the endpoints (they use `queryFn`). Either remove the unused `baseQuery` or refactor the slice to use `query` with a proper `fetchBaseQuery` that delegates to `mockApi`.",
+        "Consider using `fetchBaseQuery` with a custom `prepareHeaders` or `baseUrl` that points to the mock server, then keep the endpoints simple (`query: () => '/users'`). This reduces boilerplate and aligns with typical RTK Query patterns.",
+        "Add explicit error and loading state handling in the generated hooks (e.g., `isLoading`, `isError`, `error`) to demonstrate how consumers would use them.",
+        "Extract the common logic for fetching users and posts into a shared `queryFn` helper to avoid duplication.",
+        "Add JSDoc comments or a README snippet explaining how the mock server is wired into RTK Query, which will aid future maintainers.",
+        "Move the mock server into a dedicated `mock` or `api` folder to keep the API slice focused on RTK Query configuration."
       ],
-      "readability": 0,
-      "maintainability": 0,
-      "overall": "{\n  \"readability\": 80,\n  \"maintainability\": 75,\n  \"strengths\": [\n    \"Clear separation of concerns – API logic lives in `src/api/apiSlice.ts` and store configuration is in `src/store/store.ts`.\",\n    \"TypeScript is used consistently; the `Users` type is derived from the mock API return type, ensuring type safety.\",\n    \"Custom mock server (`src/api/mockServer.ts`) is well‑structured and simulates realistic network delays, making it easy to test RTK Query behavior.\"\n  ],\n  \"improvements\": [\n    \"",
-      "requirementCompliance": 0
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The implementation satisfies all functional requirements and demonstrates solid use of RTK Query, typed hooks, and store integration. Minor refactoring of the `baseQuery` and endpoint definitions would bring the code closer to standard RTK Query best practices and improve maintainability.",
+      "requirementCompliance": 90
     },
     "aiResults": {
       "challengeId": "06-rtk-query-setup",
-      "timestamp": "2026-08-20T11:03:11.228Z",
-      "score": 0,
+      "timestamp": "2026-08-20T11:40:32.042Z",
+      "score": 86,
       "feedback": [],
       "strengths": [
-        "Clear separation of concerns – API logic lives in `src/api/apiSlice.ts` and store configuration is in `src/store/store.ts`.\",",
-        "TypeScript is used consistently; the `Users` type is derived from the mock API return type, ensuring type safety.\",",
-        "Custom mock server (`src/api/mockServer.ts`) is well‑structured and simulates realistic network delays, making it easy to test RTK Query behavior.",
-        "improvements\": [",
-        "In `src/api/apiSlice.ts` the `baseQuery` is defined but never used. Either remove it or replace the endpoint with a standard `query: 'users'` that uses `fetchBaseQuery`. This will reduce confusion and align with typical RTK Query patterns.\","
+        "Implemented a fully typed RTK Query API slice with `createApi` and a custom `baseQuery` that works with the mock server.",
+        "Provided clear tag-based cache invalidation for both users and posts, enabling efficient refetching.",
+        "Store configuration correctly includes the API reducer and middleware, and typed hooks (`useAppDispatch`, `useAppSelector`) are set up for consistent usage across the app."
       ],
       "improvements": [
-        "In `src/api/apiSlice.ts` the `baseQuery` is defined but never used. Either remove it or replace the endpoint with a standard `query: 'users'` that uses `fetchBaseQuery`. This will reduce confusion and align with typical RTK Query patterns.\",",
-        "Add error handling to the `queryFn` in the `getUsers` endpoint: return `{ error: new Error('Failed to fetch users') }` when the mock API throws. This ensures the hook receives proper error state.\",",
-        "Type the `baseQuery` function explicitly (`baseQuery: async (_: any, api, extraOptions) => { ... }`) or switch to `fetchBaseQuery` so that the return shape (`{ data }`) is inferred correctly.\",",
-        "Consider adding `providesTags`/`invalidatesTags` to the endpoint for cache invalidation when users are created/updated/deleted. This will make the slice more useful for future challenges.\",",
-        "Add a comment in `src/api/apiSlice.ts` explaining why a custom `baseQuery` is used (e.g., to avoid network calls during tests)."
+        "The `baseQuery` defined in `apiSlice.ts` is never used by the endpoints (they use `queryFn`). Either remove the unused `baseQuery` or refactor the slice to use `query` with a proper `fetchBaseQuery` that delegates to `mockApi`.",
+        "Consider using `fetchBaseQuery` with a custom `prepareHeaders` or `baseUrl` that points to the mock server, then keep the endpoints simple (`query: () => '/users'`). This reduces boilerplate and aligns with typical RTK Query patterns.",
+        "Add explicit error and loading state handling in the generated hooks (e.g., `isLoading`, `isError`, `error`) to demonstrate how consumers would use them.",
+        "Extract the common logic for fetching users and posts into a shared `queryFn` helper to avoid duplication.",
+        "Add JSDoc comments or a README snippet explaining how the mock server is wired into RTK Query, which will aid future maintainers.",
+        "Move the mock server into a dedicated `mock` or `api` folder to keep the API slice focused on RTK Query configuration."
       ],
-      "readability": 0,
-      "maintainability": 0,
-      "overall": "{\n  \"readability\": 80,\n  \"maintainability\": 75,\n  \"strengths\": [\n    \"Clear separation of concerns – API logic lives in `src/api/apiSlice.ts` and store configuration is in `src/store/store.ts`.\",\n    \"TypeScript is used consistently; the `Users` type is derived from the mock API return type, ensuring type safety.\",\n    \"Custom mock server (`src/api/mockServer.ts`) is well‑structured and simulates realistic network delays, making it easy to test RTK Query behavior.\"\n  ],\n  \"improvements\": [\n    \"",
-      "requirementCompliance": 0
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The implementation satisfies all functional requirements and demonstrates solid use of RTK Query, typed hooks, and store integration. Minor refactoring of the `baseQuery` and endpoint definitions would bring the code closer to standard RTK Query best practices and improve maintainability.",
+      "requirementCompliance": 90
     }
   },
   {
