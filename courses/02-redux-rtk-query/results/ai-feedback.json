@@ -232,5 +232,32 @@
       "overall": "The implementation satisfies the core requirements: a mutation endpoint, a form that triggers it, and proper cache invalidation. The code is readable and follows RTK Query conventions, but a few small adjustments—especially around routing, error handling, and baseQuery usage—will bring it fully in line with best practices and ensure maintainability.",
       "requirementCompliance": 85
     }
+  },
+  {
+    "challengeId": "10-optimistic-updates",
+    "challengeName": "Optimistic Updates",
+    "aiReview": {
+      "challengeId": "10-optimistic-updates",
+      "timestamp": "2026-08-20T11:59:48.720Z",
+      "score": 86,
+      "feedback": [],
+      "strengths": [
+        "Implemented optimistic update correctly using `onQueryStarted` and `updateQueryData`.",
+        "Properly undo the cache patch on failure with `patchResult.undo()`.",
+        "Clear separation of concerns: API slice, mock server, and hooks are neatly organized."
+      ],
+      "improvements": [
+        "Remove the unused `baseQuery` implementation in `src/api/apiSlice.ts`. It currently returns users but is never used by the endpoints. Either replace it with a real `fetchBaseQuery` or delete it to avoid confusion.",
+        "After a successful mutation, replace the optimistic post (which uses `Date.now()` as an id) with the real id returned from the server. This can be done inside the `try` block using the result from `queryFulfilled` and `dispatch(apiSlice.util.updateQueryData('getPosts', undefined, draft => { /* find and replace */ }))`.",
+        "Add explicit error handling in the `catch` block (e.g., log the error or dispatch an error action) so that failures are visible during debugging.",
+        "Consider using `providesTags` for `getPosts` to include a `LIST` tag, which you already do, but ensure that the `invalidatesTags` for `addPost` correctly references the same tag to trigger refetches if needed.",
+        "Add TypeScript types for the return value of `queryFulfilled` (e.g., `const result = await queryFulfilled;`) to make the code more type‑safe.",
+        "If the project uses a Redux store, ensure that `apiSlice.reducer` is added to the store and that the middleware is included. This is not shown but is essential for a real application."
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The implementation satisfies the core requirement of an optimistic update with rollback. The code is readable and well‑structured, but a few refinements—particularly around the unused `baseQuery`, handling of the server‑returned id, and clearer error handling—would improve maintainability and align the solution more closely with RTK Query best practices.",
+      "requirementCompliance": 92
+    }
   }
 ]
