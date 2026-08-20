@@ -51,6 +51,27 @@ export const apiSlice = createApi({
                     : [{ type: 'Post' as const, id: 'LIST' }],
         }),
 
+        // Challenge 13: Parameterized query
+        getPostById: builder.query<Post, number>({
+            queryFn: async (id) => {
+                try {
+                    const data = await mockApi.getPostById(id)
+                    return { data }
+                } catch (error) {
+                    return {
+                        error:
+                            error instanceof Error
+                                ? error.message
+                                : 'Failed to load post',
+                    }
+                }
+            },
+
+            providesTags: (_result, _error, id) => [
+                { type: 'Post', id },
+            ],
+        }),
+
         addPost: builder.mutation<Post, Omit<Post, 'id'>>({
             queryFn: async (post) => {
                 const data = await mockApi.createPost(post)
@@ -86,5 +107,6 @@ export const apiSlice = createApi({
 export const {
     useGetUsersQuery,
     useGetPostsQuery,
+    useGetPostByIdQuery,
     useAddPostMutation,
 } = apiSlice

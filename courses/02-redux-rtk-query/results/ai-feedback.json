@@ -315,5 +315,21 @@
       "overall": "The implementation satisfies the core requirements: a reusable `ErrorDisplay`, a list that uses `refetch`, and clear loading indicators. The code is readable and follows RTK Query best practices, though a few small refactors and type improvements would enhance maintainability and consistency across the codebase.",
       "requirementCompliance": 92
     }
+  },
+  {
+    "challengeId": "13-query-parameters",
+    "challengeName": "Query with Parameters and Detail View",
+    "aiReview": {
+      "challengeId": "13-query-parameters",
+      "timestamp": "2026-08-20T12:34:54.520Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (429): Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01kz677ecweagah9y0rvz2t3jx` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 196504, Requested 7055. Please try again in 25m37.487999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing"
+    }
   }
 ]
