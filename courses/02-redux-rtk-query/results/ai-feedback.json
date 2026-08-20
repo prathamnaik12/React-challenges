@@ -288,5 +288,32 @@
       "overall": "The implementation satisfies the core functional requirements: a filter/sort slice is added to the store, `PostsWithFilters` correctly consumes both RTK Query and local state, and the UI renders a filtered/sorted list. The code follows good TypeScript practices and RTK Query patterns, but a few small adjustments—particularly adding the missing route and improving selector usage—will bring it fully compliant with the challenge specifications.",
       "requirementCompliance": 90
     }
+  },
+  {
+    "challengeId": "12-error-loading-ux",
+    "challengeName": "Error and Loading UX",
+    "aiReview": {
+      "challengeId": "12-error-loading-ux",
+      "timestamp": "2026-08-20T12:24:14.038Z",
+      "score": 88,
+      "feedback": [],
+      "strengths": [
+        "Clear separation of concerns: `ErrorDisplay` is a reusable component used by `UsersList`.",
+        "Proper use of RTK Query hooks (`useGetUsersQuery`, `useAddPostMutation`) with `isLoading`, `isError`, and `refetch`.",
+        "Consistent use of `data-testid` attributes for testability and UX feedback."
+      ],
+      "improvements": [
+        "In `UsersList.tsx`, the hook is called as `useQueryHook(undefined)`. The query endpoint expects no argument, so simply call `useQueryHook()` to avoid confusion.",
+        "The `ErrorDisplayProps` interface accepts `unknown` for `error`. Consider a more specific type such as `Error | string | { message: string }` to provide better type safety and IntelliSense.",
+        "Add a fallback UI for `isError` in `AddPostForm` (e.g., display the error message) to keep the UX consistent across components.",
+        "For consistency, add `data-testid` attributes to the loading and error elements in `PostsList` and `PostsWithFilters` (e.g., `posts-loading`, `posts-error`). This will make future tests easier and aligns with the challenge spec.",
+        "Remove the unused `isSuccess` flag from `AddPostForm` if it is not used elsewhere; otherwise, keep it but ensure it is displayed in a user‑friendly way.",
+        "Add comments or JSDoc to the `ErrorDisplay` component explaining the purpose of `onRetry` and the expected shape of `error` for future maintainers."
+      ],
+      "readability": 88,
+      "maintainability": 82,
+      "overall": "The implementation satisfies the core requirements: a reusable `ErrorDisplay`, a list that uses `refetch`, and clear loading indicators. The code is readable and follows RTK Query best practices, though a few small refactors and type improvements would enhance maintainability and consistency across the codebase.",
+      "requirementCompliance": 92
+    }
   }
 ]
