@@ -121,5 +121,59 @@
       "overall": "{\n  \"readability\": 85,\n  \"maintainability\": 80,\n  \"strengths\": [\n    \"Correct implementation of `createAsyncThunk` and `extraReducers` to handle async states.\",\n    \"Clear and concise type definitions for `User` and `UsersState`, improving type safety.\",\n    \"Logical separation of concerns: slices",
       "requirementCompliance": 0
     }
+  },
+  {
+    "challengeId": "07-queries",
+    "challengeName": "Query Endpoints and useQuery Hooks",
+    "aiReview": {
+      "challengeId": "07-queries",
+      "timestamp": "2026-08-20T11:02:02.312Z",
+      "score": 86,
+      "feedback": [],
+      "strengths": [
+        "The `apiSlice` correctly defines a `getUsers` query endpoint using `builder.query`.",
+        "The `UsersList` component cleanly destructures `data`, `isLoading`, `isError`, and `error` and renders appropriate UI states.",
+        "All UI elements include `data-testid` attributes, making the component test‑friendly."
+      ],
+      "improvements": [
+        "Remove the unused `baseQuery` from `apiSlice.ts` or replace it with a real `fetchBaseQuery` to avoid confusion.",
+        "Define a `User` interface in a shared types file and use `User[]` instead of the `Users` alias derived from `mockApi.getUsers` for clearer typing.",
+        "Add a fallback UI for the case where `data` is an empty array (e.g., \"No users found\").",
+        "Ensure the `apiSlice` reducer is added to the Redux store and that the `/challenge/07-queries` route renders `UsersList` – this is not shown in the provided files.",
+        "Consider using `isFetching` in addition to `isLoading` if you want to differentiate between initial load and subsequent refetches."
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The implementation satisfies the core functional requirements: a query endpoint is defined, the generated hook is used, and loading/error/data states are handled. The code follows RTK Query conventions and is readable, though a few small refactors (removing the unused baseQuery, tightening types, and ensuring store integration) would improve maintainability and clarity.",
+      "requirementCompliance": 90
+    }
+  },
+  {
+    "challengeId": "06-rtk-query-setup",
+    "challengeName": "RTK Query Setup and API Slice",
+    "aiReview": {
+      "challengeId": "06-rtk-query-setup",
+      "timestamp": "2026-08-20T11:03:11.228Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [
+        "Clear separation of concerns – API logic lives in `src/api/apiSlice.ts` and store configuration is in `src/store/store.ts`.\",",
+        "TypeScript is used consistently; the `Users` type is derived from the mock API return type, ensuring type safety.\",",
+        "Custom mock server (`src/api/mockServer.ts`) is well‑structured and simulates realistic network delays, making it easy to test RTK Query behavior.",
+        "improvements\": [",
+        "In `src/api/apiSlice.ts` the `baseQuery` is defined but never used. Either remove it or replace the endpoint with a standard `query: 'users'` that uses `fetchBaseQuery`. This will reduce confusion and align with typical RTK Query patterns.\","
+      ],
+      "improvements": [
+        "In `src/api/apiSlice.ts` the `baseQuery` is defined but never used. Either remove it or replace the endpoint with a standard `query: 'users'` that uses `fetchBaseQuery`. This will reduce confusion and align with typical RTK Query patterns.\",",
+        "Add error handling to the `queryFn` in the `getUsers` endpoint: return `{ error: new Error('Failed to fetch users') }` when the mock API throws. This ensures the hook receives proper error state.\",",
+        "Type the `baseQuery` function explicitly (`baseQuery: async (_: any, api, extraOptions) => { ... }`) or switch to `fetchBaseQuery` so that the return shape (`{ data }`) is inferred correctly.\",",
+        "Consider adding `providesTags`/`invalidatesTags` to the endpoint for cache invalidation when users are created/updated/deleted. This will make the slice more useful for future challenges.\",",
+        "Add a comment in `src/api/apiSlice.ts` explaining why a custom `baseQuery` is used (e.g., to avoid network calls during tests)."
+      ],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "{\n  \"readability\": 80,\n  \"maintainability\": 75,\n  \"strengths\": [\n    \"Clear separation of concerns – API logic lives in `src/api/apiSlice.ts` and store configuration is in `src/store/store.ts`.\",\n    \"TypeScript is used consistently; the `Users` type is derived from the mock API return type, ensuring type safety.\",\n    \"Custom mock server (`src/api/mockServer.ts`) is well‑structured and simulates realistic network delays, making it easy to test RTK Query behavior.\"\n  ],\n  \"improvements\": [\n    \"",
+      "requirementCompliance": 0
+    }
   }
 ]

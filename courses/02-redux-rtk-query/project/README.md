@@ -57,12 +57,12 @@ npm run review -- --challenge=01-store-setup
 
 ## 📊 Progress Evidence
 
-*Auto-updated when you run review. Last run: 19/8/2026, 5:48:19 pm*
+*Auto-updated when you run review. Last run: 20/8/2026, 4:33:14 pm*
 
 | Metric | Value |
 |--------|-------|
-| Challenges completed | 5 / 13 (38.5%) |
-| Average score | 95.1% |
+| Challenges completed | 7 / 13 (53.8%) |
+| Average score | 94% |
 
 | Challenge | Skills covered | Status |
 |-----------|----------------|--------|
@@ -71,8 +71,8 @@ npm run review -- --challenge=01-store-setup
 | Reading and Dispatching in Components | React-Redux, useSelector, useDispatch, typed hooks | Passed |
 | Multiple Slices in the Store | Redux, multiple reducers, slice per domain | Passed |
 | Async Logic with createAsyncThunk | Redux Toolkit, createAsyncThunk, extraReducers, pending/fulfilled/rejected | Passed |
-| RTK Query Setup and API Slice | RTK Query, createApi, fetchBaseQuery, API reducer and middleware | — |
-| Query Endpoints and useQuery Hooks | RTK Query, useGetUsersQuery, loading, error, data | — |
+| RTK Query Setup and API Slice | RTK Query, createApi, fetchBaseQuery, API reducer and middleware | Passed |
+| Query Endpoints and useQuery Hooks | RTK Query, useGetUsersQuery, loading, error, data | Passed |
 | Caching and Cache Tags | RTK Query, providesTags, invalidatesTags, cache invalidation | — |
 | Mutations with useMutation | RTK Query, builder.mutation, useMutation, POST/PUT/DELETE | — |
 | Optimistic Updates | RTK Query, optimistic updates, onQueryStarted, rollback | — |
