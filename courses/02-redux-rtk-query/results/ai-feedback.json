@@ -259,5 +259,34 @@
       "overall": "The implementation satisfies the core requirement of an optimistic update with rollback. The code is readable and well‑structured, but a few refinements—particularly around the unused `baseQuery`, handling of the server‑returned id, and clearer error handling—would improve maintainability and align the solution more closely with RTK Query best practices.",
       "requirementCompliance": 92
     }
+  },
+  {
+    "challengeId": "11-api-local-state",
+    "challengeName": "API and Local State Together",
+    "aiReview": {
+      "challengeId": "11-api-local-state",
+      "timestamp": "2026-08-20T12:13:00.217Z",
+      "score": 86,
+      "feedback": [],
+      "strengths": [
+        "Clear separation of concerns: API logic lives in `apiSlice`, UI state in `filtersSlice`, and presentation in `PostsWithFilters`.",
+        "Consistent use of typed hooks (`useAppDispatch`, `useAppSelector`) and explicit TypeScript interfaces for slice state.",
+        "Efficient derived data calculation with `useMemo` and straightforward filter/sort logic."
+      ],
+      "improvements": [
+        "Add the route for `/challenge/11-api-local-state` in the main router (likely in `App.tsx`). Without it the component will never render.",
+        "Create a typed selector for the filters slice to avoid inline selectors in components. Example: `const selectFilters = (state: RootState) => state.filters;` and use `useAppSelector(selectFilters)`.",
+        "Add visual feedback for the active filter/sort controls (e.g., disabled state or CSS class) so users know which option is selected.",
+        "Consider moving the filter/sort logic into a selector (e.g., `selectFilteredPosts`) to keep the component lean and make unit testing easier.",
+        "Add a `data-testid` for each filter button to enable fine‑grained tests.",
+        "In `store/hooks.ts`, replace the custom `withTypes` pattern with the official `TypedUseSelectorHook<RootState>` and `TypedUseDispatch` for better type inference and compatibility with future Redux Toolkit releases.",
+        "Add a comment in `store/store.ts` explaining why `apiSlice.reducerPath` is used as a key in the reducer map.",
+        "Ensure that `apiSlice` is exported from `src/api/apiSlice.ts` and that the `getPosts` query is defined there; otherwise the component will fail at runtime."
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The implementation satisfies the core functional requirements: a filter/sort slice is added to the store, `PostsWithFilters` correctly consumes both RTK Query and local state, and the UI renders a filtered/sorted list. The code follows good TypeScript practices and RTK Query patterns, but a few small adjustments—particularly adding the missing route and improving selector usage—will bring it fully compliant with the challenge specifications.",
+      "requirementCompliance": 90
+    }
   }
 ]

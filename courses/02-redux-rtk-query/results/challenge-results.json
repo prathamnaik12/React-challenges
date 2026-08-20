@@ -2807,5 +2807,323 @@
       "overall": "The implementation satisfies the core requirement of an optimistic update with rollback. The code is readable and well‑structured, but a few refinements—particularly around the unused `baseQuery`, handling of the server‑returned id, and clearer error handling—would improve maintainability and align the solution more closely with RTK Query best practices.",
       "requirementCompliance": 92
     }
+  },
+  {
+    "challengeId": "11-api-local-state",
+    "challengeName": "API and Local State Together",
+    "timestamp": "2026-08-20T12:12:39.566Z",
+    "scores": {
+      "functionalTests": 100,
+      "codeQuality": 100,
+      "architecture": 100,
+      "bestPractices": 100,
+      "e2eTests": 100,
+      "aiReview": 86
+    },
+    "totalScore": 97.9,
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "testResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 3,
+      "passedTests": 3,
+      "failedTests": 0,
+      "details": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 11: API and Local State Together"
+              ],
+              "fullName": " Challenge 11: API and Local State Together filtersSlice exists and is in store",
+              "status": "passed",
+              "title": "filtersSlice exists and is in store",
+              "duration": 2,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 11: API and Local State Together"
+              ],
+              "fullName": " Challenge 11: API and Local State Together PostsWithFilters uses useSelector and useGetPostsQuery or query hook",
+              "status": "passed",
+              "title": "PostsWithFilters uses useSelector and useGetPostsQuery or query hook",
+              "duration": 1,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 11: API and Local State Together"
+              ],
+              "fullName": " Challenge 11: API and Local State Together PostsWithFilters has posts-with-filters and filter-controls data-testids",
+              "status": "passed",
+              "title": "PostsWithFilters has posts-with-filters and filter-controls data-testids",
+              "duration": 0,
+              "failureMessages": []
+            }
+          ],
+          "startTime": 1787227964379,
+          "endTime": 1787227964382,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/user/OneDrive/Apps/react-/challenge-engine-react/courses/02-redux-rtk-query/project/tests/challenge-11.test.tsx"
+        }
+      ]
+    },
+    "lintResults": {
+      "score": 100,
+      "passed": true,
+      "totalIssues": 0,
+      "errors": 0,
+      "warnings": 0,
+      "details": [
+        {
+          "filePath": "C:\\Users\\user\\OneDrive\\Apps\\react-\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\src\\components\\PostsWithFilters.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": [
+            {
+              "ruleId": "no-extra-semi",
+              "replacedBy": []
+            },
+            {
+              "ruleId": "no-mixed-spaces-and-tabs",
+              "replacedBy": []
+            }
+          ]
+        },
+        {
+          "filePath": "C:\\Users\\user\\OneDrive\\Apps\\react-\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\src\\store\\slices\\filtersSlice.ts",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": [
+            {
+              "ruleId": "no-extra-semi",
+              "replacedBy": []
+            },
+            {
+              "ruleId": "no-mixed-spaces-and-tabs",
+              "replacedBy": []
+            }
+          ]
+        },
+        {
+          "filePath": "C:\\Users\\user\\OneDrive\\Apps\\react-\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\src\\store\\store.ts",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": [
+            {
+              "ruleId": "no-extra-semi",
+              "replacedBy": []
+            },
+            {
+              "ruleId": "no-mixed-spaces-and-tabs",
+              "replacedBy": []
+            }
+          ]
+        }
+      ]
+    },
+    "architectureResults": {
+      "score": 100,
+      "passed": true,
+      "patternsFound": [
+        "reducer",
+        "middleware"
+      ],
+      "patternsMissing": [],
+      "details": [
+        {
+          "file": "src/store/store.ts",
+          "patternsFound": [
+            "reducer",
+            "middleware"
+          ],
+          "patternsMissing": []
+        },
+        {
+          "file": "src/store/slices/filtersSlice.ts",
+          "patternsFound": [],
+          "patternsMissing": []
+        },
+        {
+          "file": "src/components/PostsWithFilters.tsx",
+          "patternsFound": [],
+          "patternsMissing": []
+        }
+      ]
+    },
+    "bestPracticesResults": {
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "details": [],
+      "note": "No best practices requirements specified in challenge"
+    },
+    "e2eResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 2,
+      "passedTests": 2,
+      "failedTests": 0,
+      "details": [
+        {
+          "title": "challenge-11.spec.ts",
+          "file": "challenge-11.spec.ts",
+          "column": 0,
+          "line": 0,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Challenge 11: API and Local State - E2E",
+              "file": "challenge-11.spec.ts",
+              "line": 3,
+              "column": 6,
+              "specs": [
+                {
+                  "title": "should load challenge 11 page with PostsWithFilters",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 1250,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-20T12:12:56.926Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "1017095ef2170c8a8deb-fae6402d7bdc74a17551",
+                  "file": "challenge-11.spec.ts",
+                  "line": 8,
+                  "column": 3
+                },
+                {
+                  "title": "should have filter controls",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 1254,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-20T12:12:58.358Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "1017095ef2170c8a8deb-8d519fcb89ba7307e5f5",
+                  "file": "challenge-11.spec.ts",
+                  "line": 13,
+                  "column": 3
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "screenshots": []
+    },
+    "aiReviewResults": {
+      "challengeId": "11-api-local-state",
+      "timestamp": "2026-08-20T12:13:00.217Z",
+      "score": 86,
+      "feedback": [],
+      "strengths": [
+        "Clear separation of concerns: API logic lives in `apiSlice`, UI state in `filtersSlice`, and presentation in `PostsWithFilters`.",
+        "Consistent use of typed hooks (`useAppDispatch`, `useAppSelector`) and explicit TypeScript interfaces for slice state.",
+        "Efficient derived data calculation with `useMemo` and straightforward filter/sort logic."
+      ],
+      "improvements": [
+        "Add the route for `/challenge/11-api-local-state` in the main router (likely in `App.tsx`). Without it the component will never render.",
+        "Create a typed selector for the filters slice to avoid inline selectors in components. Example: `const selectFilters = (state: RootState) => state.filters;` and use `useAppSelector(selectFilters)`.",
+        "Add visual feedback for the active filter/sort controls (e.g., disabled state or CSS class) so users know which option is selected.",
+        "Consider moving the filter/sort logic into a selector (e.g., `selectFilteredPosts`) to keep the component lean and make unit testing easier.",
+        "Add a `data-testid` for each filter button to enable fine‑grained tests.",
+        "In `store/hooks.ts`, replace the custom `withTypes` pattern with the official `TypedUseSelectorHook<RootState>` and `TypedUseDispatch` for better type inference and compatibility with future Redux Toolkit releases.",
+        "Add a comment in `store/store.ts` explaining why `apiSlice.reducerPath` is used as a key in the reducer map.",
+        "Ensure that `apiSlice` is exported from `src/api/apiSlice.ts` and that the `getPosts` query is defined there; otherwise the component will fail at runtime."
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The implementation satisfies the core functional requirements: a filter/sort slice is added to the store, `PostsWithFilters` correctly consumes both RTK Query and local state, and the UI renders a filtered/sorted list. The code follows good TypeScript practices and RTK Query patterns, but a few small adjustments—particularly adding the missing route and improving selector usage—will bring it fully compliant with the challenge specifications.",
+      "requirementCompliance": 90
+    },
+    "aiResults": {
+      "challengeId": "11-api-local-state",
+      "timestamp": "2026-08-20T12:13:00.217Z",
+      "score": 86,
+      "feedback": [],
+      "strengths": [
+        "Clear separation of concerns: API logic lives in `apiSlice`, UI state in `filtersSlice`, and presentation in `PostsWithFilters`.",
+        "Consistent use of typed hooks (`useAppDispatch`, `useAppSelector`) and explicit TypeScript interfaces for slice state.",
+        "Efficient derived data calculation with `useMemo` and straightforward filter/sort logic."
+      ],
+      "improvements": [
+        "Add the route for `/challenge/11-api-local-state` in the main router (likely in `App.tsx`). Without it the component will never render.",
+        "Create a typed selector for the filters slice to avoid inline selectors in components. Example: `const selectFilters = (state: RootState) => state.filters;` and use `useAppSelector(selectFilters)`.",
+        "Add visual feedback for the active filter/sort controls (e.g., disabled state or CSS class) so users know which option is selected.",
+        "Consider moving the filter/sort logic into a selector (e.g., `selectFilteredPosts`) to keep the component lean and make unit testing easier.",
+        "Add a `data-testid` for each filter button to enable fine‑grained tests.",
+        "In `store/hooks.ts`, replace the custom `withTypes` pattern with the official `TypedUseSelectorHook<RootState>` and `TypedUseDispatch` for better type inference and compatibility with future Redux Toolkit releases.",
+        "Add a comment in `store/store.ts` explaining why `apiSlice.reducerPath` is used as a key in the reducer map.",
+        "Ensure that `apiSlice` is exported from `src/api/apiSlice.ts` and that the `getPosts` query is defined there; otherwise the component will fail at runtime."
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The implementation satisfies the core functional requirements: a filter/sort slice is added to the store, `PostsWithFilters` correctly consumes both RTK Query and local state, and the UI renders a filtered/sorted list. The code follows good TypeScript practices and RTK Query patterns, but a few small adjustments—particularly adding the missing route and improving selector usage—will bring it fully compliant with the challenge specifications.",
+      "requirementCompliance": 90
+    }
   }
 ]
